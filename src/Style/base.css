@@ -1,0 +1,23 @@
+
+:root {
+    /* Paleta de cores */
+    --color-white:         rgb(255, 255, 255);
+    --color-whitesmoke:    rgb(241, 243, 245);
+    --color-grey:          rgb(161, 161, 161);
+    --color-grey-2:        rgb(233, 236, 239);
+    --color-grey-3:        rgb(173, 181, 189);
+    --color-blue:          rgb(215, 228, 251);
+    --color-brand-1:       rgb(65, 90, 243);
+    --color-brand-2:       rgb(65, 80, 210);
+    --color-brand-3:       rgb(160, 173, 249);
+    --color-green:         rgb(86, 207, 142);
+    --color-red-1:         rgb(240, 56, 57);
+    --color-red-2:         rgb(230, 68, 69);
+    --color-black-1:       rgb(52, 58, 64);
+    --color-black-2:       rgb(33, 37, 41);
+    --color-black-3:       rgb(0, 0, 0);
+    --color-black-fade:    rgba(0, 0, 0, 0.502);
+
+    /* Box-shadow */
+    --shadow-container: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+}
