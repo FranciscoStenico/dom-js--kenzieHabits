@@ -12,7 +12,7 @@ setTimeout(() => {
 }, 100);
 
 
-function menuDropDown() {
+function menuDropDownDOM() {
 	const getMenuContainer = document.querySelector(".dropdownMenu__container");
 	const createDivContainer = document.createElement("div");
 	createDivContainer.classList = "dropdown";
@@ -21,7 +21,7 @@ function menuDropDown() {
 	const createUlList = document.createElement("ul");
 	createUlList.classList = "dropdown-content";
 	const createLiEditarPerfil = document.createElement("li");
-	createLiEditarPerfil.innerText = "Editar Perfil"
+	createLiEditarPerfil.innerText = "Editar Perfil";
 	const createLiLogout = document.createElement("li");
 	createLiLogout.innerText = "Sair"
 
@@ -29,4 +29,4 @@ function menuDropDown() {
 	createDivContainer.append(figureDropDown, createUlList)
 	getMenuContainer.append(createDivContainer)
 
-}menuDropDown()
+}menuDropDownDOM()
