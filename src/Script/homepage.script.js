@@ -8,5 +8,5 @@ Request.userLogin({
 
 setTimeout(() => {
     Render.headerData()
-	Request.readHabits(10);
+	Request.listHabits(10);
 }, 100);

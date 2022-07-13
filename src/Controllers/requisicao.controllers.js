@@ -61,7 +61,7 @@ export default class Request {
       .catch((err) => console.error(err));
   }
 
-  static async readHabits(num) {
+  static async listHabits(num) {
     const options = {
       method: "GET",
       headers: {
@@ -75,7 +75,7 @@ export default class Request {
       .catch((err) => console.error(err));
   }
 
-  static async readByCategory(category) {
+  static async listByCategory(category) {
     const options = {
       method: "GET",
       headers: {

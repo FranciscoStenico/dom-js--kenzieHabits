@@ -55,6 +55,7 @@
   border: 2px var(--color-brand-1) solid;
   border-radius: 20px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .menu__foto {
@@ -324,4 +325,55 @@
     display: unset;
     width: 20%;
   }
+}
+
+
+/*  Menu Drop Down */
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.figureDropDown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content li {
+  color: #FFF;
+  padding: 16px 20px;
+  text-decoration: none;
+  display: block;
+  
+}
+
+.dropdown-content li:hover {
+  color: blue;
+  background-color: #FFF;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
 }
