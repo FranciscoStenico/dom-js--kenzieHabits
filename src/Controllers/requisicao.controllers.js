@@ -1,3 +1,5 @@
+import Render from "../Models/render.models.js";
+
 export default class Request {
   static baseUrl = "https://habits-kenzie.herokuapp.com/api";
   static token = localStorage.getItem("@kenzie-habits (token)");
@@ -57,7 +59,7 @@ export default class Request {
       .catch((err) => console.error(err));
   }
 
-  static async readAll() {
+  static async listHabits(num) {
     const options = {
       method: "GET",
       headers: {
@@ -67,11 +69,11 @@ export default class Request {
 
     fetch(`${this.baseUrl}/habits`, options)
       .then((response) => response.json())
-      // .then(response => /* desenvolva aqui seu código de resposta */)
+      .then((response) => Render.habitList(num, response))
       .catch((err) => console.error(err));
   }
 
-  static async readByCategory(category) {
+  static async listByCategory(category) {
     const options = {
       method: "GET",
       headers: {

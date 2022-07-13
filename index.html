@@ -13,7 +13,34 @@
     <title>Capstone - Login</title>
   </head>
   <body>
-    <script type="module" src="/src/Modules/index.modules.js"></script>
-    <script src="/src/Script/index.script.js"></script>
+    <main>
+        <section class="login">
+            <div class="containerParteEscrita">
+                <h2 class="tituloSite">KenzieHabit</h2>
+                <p class="paragrafoTelaDeLogin">If you are going to use a <u>passage</u> of Lorem Ipsum</p>
+                <p class="ParagrafoRodape">you need to be sure there isn't anything</p>
+
+                <div class="arrasteMobile">
+                    <img  class="arrasta" src="src/assets/kisspng-united-states-logo-organization-brand-business-white-arrow-image-png-5ab1bd7e5417f8.8230032015215978223445.png" alt="imagem arrastando para baixo">
+                </div>
+            </div>
+                
+            <div class="containerParteInputs">
+                <form class="formDosInputs">
+                    <h3 class="TituloLogin">Login</h3>
+                    <label>Email
+                        <input type="text" name="email">
+                    </label>
+                    <label>Senha
+                        <input type="password" name="password">
+                    </label>
+                    <button class="botaoLogin" id="btnLogin">Login</button>
+                </form>
+            </div>
+        </section>
+      </main>
+
+    <script type="module" src="src/Controllers/index.cotroler.js"></script>
+    <script type="module" src="src/Models/index.models.js"></script>
   </body>
 </html>
