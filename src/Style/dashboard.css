@@ -6,35 +6,34 @@ header{
 .header__menu{
     height: 58px;
     display: flex;
-    justify-content: space-between;
-    padding: 0 15%;
+    justify-content: space-around;
     align-items: center;
-    box-shadow: 0px 4px 30px -10px var(--shadow-container);
+    box-shadow: 0px 4px 30px -10px var(--color-black-fade);
 }
 
-.menu__titulo{
+.header__menu__container{
+    width: 400px;
+    justify-content: space-between;
+    display: flex;
+    margin: 9px;
+
+}
+
+.header__menu__titulo{
     font-weight: 700;
     font-size: 22px;
     line-height: 27px;
     color: var(--color-brand-1);
 }
 
-.menu__container{
-    width: 400px;
-    display: flex;
-    justify-content: flex-end;
-    margin: 9px;
-
-}
-
-.container__interacao{
+.header__menu__interacao{
     height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container__botao{
+.header__menu__botao{
     width: fit-content;
     padding: 0px 12px;
     height: 30px;
@@ -48,11 +47,10 @@ header{
     line-height: 17px;
 }
 
-.menu__container__foto{
+.header__menu__foto_container{
     background-image: url("../assets/user-svgrepo-com.svg");
     background-size: 130%;
     background-position: center;
-    margin-left: 10px;
     width: 40px;
     height: 40px;
     border: 2px var(--color-brand-1) solid;
@@ -60,7 +58,7 @@ header{
     overflow: hidden;
 }
 
-.menu__foto{
+.header__menu__foto{
     width: 36px;
     height: 36px;
 }
@@ -68,20 +66,13 @@ header{
 .header__perfil{
     height: 125px;
     display: flex;
-    justify-content: space-between;
-    padding: 0 15%;
+    justify-content: start;
     align-items: center;
     background-color: var(--color-brand-1);
     box-shadow: 0px 4px 30px -10px var(--color-black-fade);
 }
 
-.header__perfil-container{
-    width: fit-content;
-    display: flex;
-    justify-content: space-between;
-}
-
-.perfil__container__foto{
+.header__perfil__foto_container{
     background-image: url("../assets/user-svgrepo-com.svg");
     background-color: var(--color-white);
     background-size: 130%;
@@ -91,17 +82,17 @@ header{
     border: 3px var(--color-white) solid;
     border-radius: 30px;
     overflow: hidden;
+    margin: 0px 25px 0px 210px;
 }
 
-.perfil__foto{
-    width: 100%;
-    height: 100%;
+.header__perfil__foto{
+    width: 54px;
+    height: 54px;
 }
 
-.perfil__titulo{
-    width: fit-content;
+.header__perfil__titulo{
+    width: 190px;
     height: 24px;
-    padding-left: 1rem;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -109,32 +100,3 @@ header{
     color: var(--color-white);
     margin-bottom: 35px;
 }
-
-@media (max-width: 768px) {
-    .container__interacao{
-        display: none;
-    }
-}
-
-@media (max-width: 460px) {
-.header__menu{
-    justify-content: space-evenly;
-    padding: 0 5%;
-}
-
-.header__perfil{
-    padding: 0 5%;
-}
-
-.header__perfil-container{
-    margin-bottom: 2rem;
-}
-
-.perfil__titulo{
-    height: 100%;
-    margin: 0;
-}
-
-}
-
-

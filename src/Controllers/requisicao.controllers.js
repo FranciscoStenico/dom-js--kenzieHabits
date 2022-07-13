@@ -1,6 +1,8 @@
 export default class Request {
     static baseUrl = "https://habits-kenzie.herokuapp.com/api";
     static token = localStorage.getItem("@kenzie-habits (token)");
+    static userName = localStorage.getItem("@kenzie-habits (usr_name)");
+    static userAvatar = localStorage.getItem("@kenzie-habits (usr_image)");
   
     static async userLogin(body) {
       const options = {
@@ -13,8 +15,8 @@ export default class Request {
         .then((response) => response.json())
         .then((response) => {
           localStorage.setItem("@kenzie-habits (token)", response.token);
-          localStorage.setItem("@kenzie-habits (response)", response.response);
-  
+          localStorage.setItem("@kenzie-habits (usr_name)", response.response.usr_name);
+          localStorage.setItem("@kenzie-habits (usr_image)", response.response.usr_image);
           /* desenvolva aqui seu código de resposta */
         })
         .catch((err) => console.error(err));
