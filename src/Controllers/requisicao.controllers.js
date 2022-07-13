@@ -4,11 +4,11 @@ export default class Request {
   static baseUrl = "https://habits-kenzie.herokuapp.com/api";
   static token = localStorage.getItem("@kenzie-habits: token");
   static userAvatar = localStorage.getItem("@kenzie-habits: FotoDeUsuario");
-  static userName = localStorage.getItem("@kenzie-habits: EmailDeUsuario");
+  static userName = localStorage.getItem("@kenzie-habits: NomeDeUsuario");
   static userEmail = localStorage.getItem("@kenzie-habits: EmailDeUsuario")
 
   static async login(dados) {
-    return await fetch(this.base_url, {
+    return await fetch(`${this.baseUrl}/userLogin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
