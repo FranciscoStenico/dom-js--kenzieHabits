@@ -6,4 +6,4 @@ setTimeout(() => {
 	Request.listHabits(10);
 }, 100);
 
-Render.menuDropDown()
+Render.menuDropDown();
