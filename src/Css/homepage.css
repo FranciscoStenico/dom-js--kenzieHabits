@@ -327,17 +327,7 @@
   }
 }
 
-
 /*  Menu Drop Down */
-
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
 
 .figureDropDown {
   position: relative;
@@ -359,7 +349,7 @@
   padding: 16px 20px;
   text-decoration: none;
   display: block;
-  
+
 }
 
 .dropdown-content li:hover {
