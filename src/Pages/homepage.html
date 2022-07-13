@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Link's CSS -->
-  <link rel="stylesheet" href="../Css/reset.css">
-  <link rel="stylesheet" href="../Css/base.css">
-  <link rel="stylesheet" href="../Css/homepage.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link's CSS -->
+    <link rel="stylesheet" href="../Css/reset.css" />
+    <link rel="stylesheet" href="../Css/base.css" />
+    <link rel="stylesheet" href="../Css/homepage.css" />
 
-  <title>Capstone - Homepage</title>
-</head>
-<body>
-  <header>
-    <div class="header__menu">
+    <title>Capstone - Homepage</title>
+  </head>
+  <body>
+    <header class="page__header">
+      <div class="header__menu">
         <h2 class="menu__titulo">KenzieHabit</h2>
         <div class="menu__container">
-            <nav class="container__interacao">
-                <button class="container__botao">Editar Perfil</button>
-                <button class="container__botao">Sair</button>
-            </nav>
-            <figure class="menu__container__foto">
-            </figure>
+          <nav class="container__interacao">
+            <button class="container__botao">Editar Perfil</button>
+            <button class="container__botao">Sair</button>
+          </nav>
+          <figure class="menu__container__foto"></figure>
         </div>
-    </div>
-    <div class="header__perfil">
+      </div>
+      <div class="header__perfil">
         <div class="header__perfil-container">
-          <figure class="perfil__container__foto">
-          </figure>
+          <figure class="perfil__container__foto"></figure>
           <h2 class="perfil__titulo"></h2>
         </div>
-
-        <div></div>
-
-    </div>
-  </header>
-  <script type="module" src="../Script/homepage.script.js"></script>
-</body>
+        <div id="simetria"></div>
+      </div>
+    </header>
+    <main class="page__content">
+      <section class="content__intro">
+        <h3 class="intro__title">Tarefas</h3>
+        <nav class="intro__options">
+          <h4 class="options__filter" id="opAll">Todos</h4>
+          <h4 class="options__filter" id="opComplete">Concluídos</h4>
+          <button class="options__create">Criar</button>
+        </nav>
+      </section>
+      <div class="content__table">
+        <header class="table__header">
+          <h5 class="table-header__title">Status</h5>
+          <h5 class="table-header__title">Título</h5>
+          <h5 class="table-header__title table__description">Descrição</h5>
+          <h5 class="table-header__title table__category">Categoria</h5>
+          <h5 class="table-header__title">Editar</h5>
+        </header>
+        
+        <ul class="table__list"> 
+        </ul>
+      </div>
+    </main>
+    <script type="module" src="../Script/homepage.script.js"></script>
+  </body>
 </html>

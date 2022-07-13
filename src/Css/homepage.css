@@ -1,140 +1,181 @@
-header{
-    width: 100vw;
-    height: 183px;
+.page__header {
+  width: 100vw;
+  height: 183px;
 }
 
-.header__menu{
-    height: 58px;
+.header__menu {
+  height: 58px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 5%;
+  align-items: center;
+  box-shadow: 0px 4px 30px -10px var(--shadow-container);
+}
+
+.menu__titulo {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  color: var(--color-brand-1);
+}
+
+.menu__container {
+  width: 400px;
+  display: flex;
+  justify-content: flex-end;
+  margin: 9px;
+}
+
+.container__interacao {
+  display: none;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container__botao {
+  width: fit-content;
+  padding: 0px 12px;
+  height: 30px;
+  margin: 5px 8px;
+  border-radius: 3px;
+  color: var(--color-blue);
+  background-color: var(--color-brand-2);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.menu__container__foto {
+  background-image: url("../assets/user-svgrepo-com.svg");
+  background-size: 130%;
+  background-position: center;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  border: 2px var(--color-brand-1) solid;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.menu__foto {
+  width: 36px;
+  height: 36px;
+}
+
+.header__perfil {
+  height: 125px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  align-items: center;
+  background-color: var(--color-brand-1);
+  box-shadow: 0px 4px 30px -10px var(--color-black-fade);
+}
+
+.header__perfil-container {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.perfil__container__foto {
+  background-image: url("../assets/user-svgrepo-com.svg");
+  background-color: var(--color-white);
+  background-size: 130%;
+  background-position: center;
+  width: 60px;
+  height: 60px;
+  border: 3px var(--color-white) solid;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.perfil__foto {
+  width: 100%;
+  height: 100%;
+}
+
+.perfil__titulo {
+  width: fit-content;
+  height: 100%;
+  padding-left: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.content__intro {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 0 15%;
-    align-items: center;
-    box-shadow: 0px 4px 30px -10px var(--shadow-container);
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.menu__titulo{
+.intro__title {
     font-weight: 700;
-    font-size: 22px;
-    line-height: 27px;
-    color: var(--color-brand-1);
+    margin: 1rem 0;
 }
 
-.menu__container{
-    width: 400px;
-    display: flex;
-    justify-content: flex-end;
-    margin: 9px;
-
-}
-
-.container__interacao{
-    height: 40px;
+.intro__options {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container__botao{
-    width: fit-content;
-    padding: 0px 12px;
-    height: 30px;
-    margin: 5px 8px;
-    border-radius: 3px;
-    color: var(--color-blue);
-    background-color: var(--color-brand-2);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
+.options__filter {
+    cursor: pointer;
 }
 
-.menu__container__foto{
-    background-image: url("../assets/user-svgrepo-com.svg");
-    background-size: 130%;
-    background-position: center;
-    margin-left: 10px;
-    width: 40px;
-    height: 40px;
-    border: 2px var(--color-brand-1) solid;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.menu__foto{
-    width: 36px;
-    height: 36px;
-}
-
-.header__perfil{
-    height: 125px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 15%;
-    align-items: center;
-    background-color: var(--color-brand-1);
-    box-shadow: 0px 4px 30px -10px var(--color-black-fade);
-}
-
-.header__perfil-container{
-    width: fit-content;
-    display: flex;
-    justify-content: space-between;
-}
-
-.perfil__container__foto{
-    background-image: url("../assets/user-svgrepo-com.svg");
-    background-color: var(--color-white);
-    background-size: 130%;
-    background-position: center;
-    width: 60px;
-    height: 60px;
-    border: 3px var(--color-white) solid;
-    border-radius: 30px;
-    overflow: hidden;
-}
-
-.perfil__foto{
-    width: 100%;
-    height: 100%;
-}
-
-.perfil__titulo{
-    width: fit-content;
-    height: 24px;
-    padding-left: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
+.options__create {
+    font-size: 0.9rem;
+    border-radius: 4px;
+    padding: 0.5rem 1.75rem;
     color: var(--color-white);
-    margin-bottom: 35px;
+    background-color: var(--color-brand-1);
+    font-weight: 600;
+    cursor: pointer;
 }
 
-@media (max-width: 768px) {
-    .container__interacao{
-        display: none;
+.content__table {
+    background: green;
+    width: 100%;
+}
+
+.table__header {
+    display: flex;
+}
+
+@media (min-width: 460px) {
+    .header__menu {
+        justify-content: space-between;
+        padding: 0 15%;
+    }
+    
+    .header__perfil {
+        padding: 0 15%;
+    }
+    
+    .header__perfil-container {
+        margin-bottom: unset;
+    }
+    
+    .perfil__titulo {
+        height: 24px;
+        margin-bottom: 35px;
     }
 }
 
-@media (max-width: 460px) {
-.header__menu{
-    justify-content: space-evenly;
-    padding: 0 5%;
+@media (min-width: 768px) {
+  .container__interacao {
+      display: flex;
+  }
 }
-
-.header__perfil{
-    padding: 0 5%;
-}
-
-.header__perfil-container{
-    margin-bottom: 2rem;
-}
-
-.perfil__titulo{
-    height: 100%;
-    margin: 0;
-}
-
-}
-
-
