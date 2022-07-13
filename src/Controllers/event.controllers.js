@@ -1,9 +1,7 @@
-import LoginRequest from "../Controllers/index.cotroler.js";
+import Request from "./requisicao.controllers.js";
 
-const botaoLogin = document.getElementById("btnLogin");
-
-class CaptarLogin {
-  static dados(event) {
+export default class Event {
+  static submitLogin(event) {
     event.preventDefault();
 
     const formDeLogin = document.querySelector(".formDosInputs");
@@ -18,11 +16,6 @@ class CaptarLogin {
         data[name] = value;
       }
     }
-    return data;
+    Request.login(data);
   }
 }
-
-botaoLogin.addEventListener("click", async (event) => {
-  const dadosDoLogin = CaptarLogin.dados(event);
-  LoginRequest.login(dadosDoLogin);
-});
