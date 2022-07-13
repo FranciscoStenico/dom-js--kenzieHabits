@@ -14,10 +14,10 @@ export default class Request {
       fetch(`${this.baseUrl}/userLogin`, options)
         .then((response) => response.json())
         .then((response) => {
+          /* desenvolva aqui seu código de resposta */
           localStorage.setItem("@kenzie-habits (token)", response.token);
           localStorage.setItem("@kenzie-habits (usr_name)", response.response.usr_name);
           localStorage.setItem("@kenzie-habits (usr_image)", response.response.usr_image);
-          /* desenvolva aqui seu código de resposta */
         })
         .catch((err) => console.error(err));
     }
