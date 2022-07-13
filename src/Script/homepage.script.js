@@ -1,5 +1,5 @@
 import Request from "../Controllers/requisicao.controllers.js";
-import Abacaxi from "../Models/render.models.js";
+import Render from "../Models/render.models.js";
 
 Request.userLogin({
 	email: "grupo2Nicole@mail.com",
@@ -7,5 +7,25 @@ Request.userLogin({
 })
 
 setTimeout(() => {
-    Abacaxi.headerData()
+    Render.headerData()
 }, 100);
+
+
+function menuDropDown() {
+	const getMenuContainer = document.querySelector(".dropdownMenu__container");
+	const createDivContainer = document.createElement("div");
+	createDivContainer.classList = "dropdown";
+	const figureDropDown = document.createElement("figure");
+	figureDropDown.classList = "figureDropDown menu__container__foto";
+	const createUlList = document.createElement("ul");
+	createUlList.classList = "dropdown-content";
+	const createLiEditarPerfil = document.createElement("li");
+	createLiEditarPerfil.innerText = "Editar Perfil"
+	const createLiLogout = document.createElement("li");
+	createLiLogout.innerText = "Sair"
+	
+	createUlList.append(createLiEditarPerfil, createLiLogout)
+	createDivContainer.append(figureDropDown, createUlList)
+	getMenuContainer.append(createDivContainer)
+
+}menuDropDown()
