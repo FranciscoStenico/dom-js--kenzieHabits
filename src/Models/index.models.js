@@ -1,28 +1,28 @@
 import LoginRequest from "../Controllers/index.cotroler.js";
 
-const botaoLogin = document.getElementById("btnLogin")
+const botaoLogin = document.getElementById("btnLogin");
 
-class CaptarLogin{
-    static dados(event){
-        event.preventDefault();
+class CaptarLogin {
+  static dados(event) {
+    event.preventDefault();
 
-        const formDeLogin = document.querySelector(".formDosInputs")
-        const data = {}
-        
-        for(let i = 0; i < formDeLogin.length; i++){
-            const {name, value} = formDeLogin[i];
-            if(name){
-                if(value === ""){
-                    return alert("Digite os dados de login")
-                }
-                data[name] = value
-            }
+    const formDeLogin = document.querySelector(".formDosInputs");
+    const data = {};
+
+    for (let i = 0; i < formDeLogin.length; i++) {
+      const { name, value } = formDeLogin[i];
+      if (name) {
+        if (value === "") {
+          return alert("Digite os dados de login");
         }
-        return data
+        data[name] = value;
+      }
     }
+    return data;
+  }
 }
-    
-    botaoLogin.addEventListener("click", async(event) => {
-        const dadosDoLogin = CaptarLogin.dados(event)
-        LoginRequest.login(dadosDoLogin)
-    })
+
+botaoLogin.addEventListener("click", async (event) => {
+  const dadosDoLogin = CaptarLogin.dados(event);
+  LoginRequest.login(dadosDoLogin);
+});

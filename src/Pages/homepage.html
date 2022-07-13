@@ -37,49 +37,25 @@
         <nav class="intro__options">
           <h4 class="options__filter" id="opAll">Todos</h4>
           <h4 class="options__filter" id="opComplete">Concluídos</h4>
-          <button class="options__create">Criar</button>
+          <button class="options__create submit-button">Criar</button>
         </nav>
       </section>
       <div class="content__table">
         <header class="table__header">
-          <h5 class="table-header__title">Status</h5>
-          <h5 class="table-header__title">Título</h5>
+          <h5 class="table-header__title table-header__title--status">Status</h5>
+          <h5 class="table-header__title table-header__title--habit-title">Título</h5>
           <h5 class="table-header__title table__description">Descrição</h5>
           <h5 class="table-header__title table__category">Categoria</h5>
-          <h5 class="table-header__title">Editar</h5>
+          <h5 class="table-header__title table-header__title--editor">Editar</h5>
         </header>
-        <ul class="table__list">
-          <li class="list__habit">            <!-- LI => CADA LINHA DE HÁBITO DENTRO DA UL -->
-            <div class="habit__checkbox"></div>
-            <h6 class="habit__title">Fazer exercícios segunda pela manhã</h6>
-            <p class="habit__description">Ir correr na  praça próximo de csa</p>
-            <div class="habit__category"><span class="category__tag">Saúde</span></div>
-            <div class="habit__editor"></div>
-          </li>
-          <li class="list__habit">            <!-- LI => CADA LINHA DE HÁBITO DENTRO DA UL -->
-            <div class="habit__checkbox"></div>
-            <h6 class="habit__title">Pedir relatório de feedback após duas semanas</h6>
-            <p class="habit__description">A importância desse tarefa </p>
-            <div class="habit__category"><span class="category__tag">Trabalho</span></div>
-            <div class="habit__editor"></div>
-          </li>
-          <li class="list__habit">            <!-- LI => CADA LINHA DE HÁBITO DENTRO DA UL -->
-            <div class="habit__checkbox"></div>
-            <h6 class="habit__title">Sair com meus amigos para lanchar</h6>
-            <p class="habit__description">Escolher um restaurante interessante</p>
-            <div class="habit__category"><span class="category__tag">Lazer</span></div>
-            <div class="habit__editor"></div>
-          </li>
-          <li class="list__habit">            <!-- LI => CADA LINHA DE HÁBITO DENTRO DA UL -->
-            <div class="habit__checkbox"></div>
-            <h6 class="habit__title">Aprender como criar uma função de debounce</h6>
-            <p class="habit__description">Acessar o conteúdo da Kenzie</p>
-            <div class="habit__category"><span class="category__tag">Estudo</span></div>
-            <div class="habit__editor"></div>
-          </li>
-          
+        <ul class="table__list" id="habitsList">
+          <!-- render via DOM -->
+          <section class="table__empty">
+            <h2 class="empty__message">Você ainda não possui uma tarefa.</h2>
+          </section>
         </ul>
       </div>
+      <button class="content__expand submit-button">Carregar mais</button>
     </main>
     <script type="module" src="../Script/homepage.script.js"></script>
   </body>
