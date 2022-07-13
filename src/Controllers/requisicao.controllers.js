@@ -2,7 +2,10 @@ import Render from "../Models/render.models.js";
 
 export default class Request {
   static baseUrl = "https://habits-kenzie.herokuapp.com/api";
-  static token = localStorage.getItem("@kenzie-habits (token)");
+  static token = localStorage.getItem("@kenzie-habits: token");
+  static userAvatar = localStorage.getItem("@kenzie-habits: FotoDeUsuario");
+  static userName = localStorage.getItem("@kenzie-habits: EmailDeUsuario");
+  static userEmail = localStorage.getItem("@kenzie-habits: EmailDeUsuario")
 
   static async login(dados) {
     return await fetch(this.base_url, {
@@ -12,16 +15,12 @@ export default class Request {
       },
       body: JSON.stringify(dados),
     })
+      .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        return res.json();
-      })
-      .then((res) => {
-        console.log(res.response);
-        localStorage.setItem("@blog:NomeDeUsuario", res.response.usr_name);
-        localStorage.setItem("@blog:EmailDeUsuario", res.response.usr_email);
-        localStorage.setItem("@blog:FotoDeUsuario", res.response.usr_image);
-        localStorage.setItem("@blog:token", res.token);
+        localStorage.setItem("@kenzie-habits: NomeDeUsuario", res.response.usr_name);
+        localStorage.setItem("@kenzie-habits: EmailDeUsuario", res.response.usr_email);
+        localStorage.setItem("@kenzie-habits: FotoDeUsuario", res.response.usr_image);
+        localStorage.setItem("@kenzie-habits: token", res.token);
         window.location.href = "./src/Pages/homepage.html";
       })
       .catch((err) => console.log(err));
