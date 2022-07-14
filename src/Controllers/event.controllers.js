@@ -40,7 +40,6 @@ export default class Event {
   static modal(e) {
     e.preventDefault();
     
-    console.log(e.target.id)
     localStorage.setItem("@kenzie-habits: eventId", e.target.id);
 
     const container = document.querySelector(".modal__container");
@@ -90,8 +89,8 @@ export default class Event {
     
 
     const buttonSaveEditProfile = document.querySelector('.modal__submit')
+    
     buttonSaveEditProfile?
-
     buttonSaveEditProfile.addEventListener("click", (event) => {
       event.preventDefault();
       let body = {}
