@@ -52,6 +52,7 @@ export default class Render {
     editor.classList.add("habit__editor");
 
     editor.value = "Editar hábito";
+    editor.id = habit.habit_id;
 
     title.innerText = habit.habit_title;
     description.innerText = habit.habit_description;

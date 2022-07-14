@@ -4,7 +4,7 @@ import Event from "../Controllers/event.controllers.js"
 
 setTimeout(() => {
   Render.headerData();
-  Request.listHabits(10);
+  Request.listHabits(5);
 }, 100);
 
 // Render.menuDropDown();

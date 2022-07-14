@@ -1,4 +1,4 @@
-//-------------Código classes---------------
+import Event from "../Controllers/event.controllers.js";
 
 export default class Modals {
   static creatStructure(typeOfModal) {
@@ -80,7 +80,6 @@ export default class Modals {
     return button;
   }
 
-
   static setInnerTextHtml(tagToSet, textToSet) {
     const tag = tagToSet;
     tag.innerText = textToSet;
@@ -147,7 +146,7 @@ export default class Modals {
 
     // bloco container
     const formModal = this.createHtmlElement("form", "modal creatHabit");
- 
+
     // bloco caixas de ação
     const boxActionHabitTitle = this.createActionBox(
       "input",
@@ -191,10 +190,8 @@ export default class Modals {
     // Elemento necessario para atribuir o modal a tela
     const modalScreen = document.querySelector(".modal-screen");
 
-
     // bloco container
     const formModal = this.createHtmlElement("form", "modal editHabit");
-
 
     // bloco caixas de ação
     const boxActionHabitTitle = this.createActionBox(
@@ -250,6 +247,8 @@ export default class Modals {
       "modal__submit delete",
       "Excluir hábito"
     );
+    boxActionHabitButtonDelete.addEventListener("click", Event.modalDelete);
+
     const boxActionHabitButtonSave = this.createActionBoxButton(
       "button",
       "Salvar",
@@ -262,23 +261,21 @@ export default class Modals {
       boxActionHabitButtonSave
     );
 
-    // Adicionando addEventListener ao butao excluir 
-    boxActionHabitButtonDelete.addEventListener('click', () => {
-      this.delete()
-      modalScreen.classList.toggle("modal-open");
-      this.bodyDocument.removeChild(formModal) 
-    })
+    // Adicionando addEventListener ao butao excluir
+    boxActionHabitButtonDelete.addEventListener("click", () => {
+      // this.delete()
+      // this.bodyDocument.removeChild(formModal)
+    });
 
-    // Adicionando addEventListener ao butao excluir 
-    boxActionHabitButtonSave.addEventListener('click', () => {
+    // Adicionando addEventListener ao butao excluir
+    boxActionHabitButtonSave.addEventListener("click", () => {
       modalScreen.classList.toggle("modal-open");
-      this.bodyDocument.removeChild(formModal) 
+      this.bodyDocument.removeChild(formModal);
 
       //Requisiçao da API para salvar
-      console.log('Sucesso')
-    })
+      console.log("Sucesso");
+    });
 
- 
     // implementando corpo de modal ao container
     formModal.append(
       // modalHeaderCreated,
@@ -294,11 +291,12 @@ export default class Modals {
   }
 
   static editProfile() {
+    const modalContainer = document.querySelector(".modal__container");
+    modalContainer.classList.add("flat");
     // BLOCOS NECESSARIS PARA MODAL EDITAR PROFILE
 
     // bloco container
     const formModal = this.createHtmlElement("form", "modal editProfile");
-
 
     // bloco caixas de ação
     const boxActionHabitTitle = this.createActionBox(
@@ -323,7 +321,6 @@ export default class Modals {
       "modal__submit"
     );
 
-
     // implementando corpo de modal ao container
     formModal.append(
       // modalHeaderCreated,
@@ -336,20 +333,27 @@ export default class Modals {
     return formModal;
   }
 
-
-  static delete() {
+  static delete(id) {
+    const modalContainer = document.querySelector(".modal__container");
+    modalContainer.classList.add("flat");
     // BLOCOS NECESSARIS PARA MODAL DELETAR HABITO
 
     // bloco container
-    const formModal = this.createHtmlElement("form", "modal delete");
+    const formModal = this.createHtmlElement("form", "modal modal--delete");
 
-
+    const alertContainer = this.createHtmlElement(
+      "div",
+      "modal__alert-container--delete"
+    );
     // bloco caixas de ação
     let deleteDescriptionTitle = this.createHtmlElement(
       "h2",
-      "title actionInforme"
+      "title--delete-habit actionInforme"
     );
-    let deleteDescription = this.createHtmlElement("p", "title");
+    let deleteDescription = this.createHtmlElement(
+      "p",
+      "description--delete-habit"
+    );
     deleteDescriptionTitle = this.setInnerTextHtml(
       deleteDescriptionTitle,
       "Certeza que deseja excluir este hábito?"
@@ -359,23 +363,28 @@ export default class Modals {
       "Após executar essa ação não será possível desfazer"
     );
 
+    alertContainer.append(deleteDescriptionTitle, deleteDescription);
+
     const conntainerDeleteButtonCancel = this.createHtmlElement(
       "div",
       "container__box button"
     );
+
     const deleteButtonCancel = this.createActionBoxButton(
       "button",
       "Cancelar",
       "submit",
-      "modal__submit delete"
+      "modal__submit cancel"
     );
+    deleteButtonCancel.addEventListener("click", Event.returnModal);
 
     const deleteButtonConfirme = this.createActionBoxButton(
       "button",
       "Sim, excluir este hábito",
       "submit",
-      "modal__submit deleteConfirme"
+      "modal__submit deleteConfirm"
     );
+
 
     conntainerDeleteButtonCancel.append(
       deleteButtonCancel,
@@ -383,17 +392,11 @@ export default class Modals {
     );
 
     // implementando corpo de modal ao container
-    formModal.append(
-      // modalHeaderCreated,
-      deleteDescriptionTitle,
-      deleteDescription,
-      conntainerDeleteButtonCancel
-    );
+    formModal.append(alertContainer, conntainerDeleteButtonCancel);
 
     // retornando modal completo
     return formModal;
   }
 }
-
 
 //Made by Daniel Marques (dev7)
