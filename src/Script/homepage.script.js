@@ -18,5 +18,11 @@ create.addEventListener("click", Event.modal);
 const modalClose = document.querySelector(".modal-header__exit-button");
 modalClose.addEventListener("click", Event.modal);
 
-const logOutBtn = document.querySelector("#logOutBtn")
-logOutBtn.addEventListener("click", Event.logOutProfile)
+const logOutBtn = document.querySelector("#logOutBtn");
+logOutBtn.addEventListener("click", Event.logOutProfile);
+
+const btnInserirHabito = document.getElementById("buttonIdTeste");
+console.log(btnInserirHabito)
+// btnInserirHabito.addEventListener("click", () => {
+//   Event.coletarDadosCriarHabitos
+// });
