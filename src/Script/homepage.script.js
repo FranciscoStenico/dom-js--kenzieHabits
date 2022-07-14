@@ -20,3 +20,6 @@ modalClose.addEventListener("click", Event.modal);
 
 const expand = document.querySelector(".content__expand");
 expand.addEventListener("click", Event.expandContent);
+
+const logOutBtn = document.querySelector("#logOutBtn");
+logOutBtn.addEventListener("click", Event.logOutProfile);

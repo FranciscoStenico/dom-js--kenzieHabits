@@ -30,7 +30,7 @@ export default class Event {
   }
 
   static removerErro() {
-    const mensagemErro = document.querySelector(".modal__content");
+    const mensagemErro   = document.querySelector(".modal__content");
     const btnRemoverErro = document.querySelector(".content__delete-button");
     btnRemoverErro.addEventListener("click", () => {
       mensagemErro.style.display = "none";
@@ -47,10 +47,12 @@ export default class Event {
     container.classList.remove("flat");
 
     const value = e.target.value;
+
     const modalScreen = document.querySelector(".modal-screen");
     modalScreen.classList.toggle("modal-open");
 
     if (value === "close") {
+    
       const form = document.querySelector(".modal");
       Modals.bodyDocument.removeChild(form);
     } else {
@@ -58,8 +60,42 @@ export default class Event {
       title.innerText = value;
 
       const form = Modals.creatStructure(value);
+
       Modals.bodyDocument.append(form);
     }
+
+    // Inicio Evento do CLick para receber os dados dos inputs Criar Habitos, salvar na variavel dadosColetados e retornar a requisição.
+    const buttonInserirHabito = document.getElementById("buttonIdTeste");
+    buttonInserirHabito.addEventListener("click", (event) =>{
+      event.preventDefault();
+      const getTitleValue   = document.querySelector("#title");
+      const getSelectValue    = document.querySelector("select");
+      const getDescriptionValue = document.querySelector("#description");
+      const selectedValue = getSelectValue.options[getSelectValue.selectedIndex].value;
+  
+      // retornar um Objeto com os valores coletados dos inputs
+      const dadosColetadosCriarHabitos = {
+        "habit_title"      : getTitleValue.value,
+        "habit_description": getDescriptionValue.value,
+        "habit_category"   : selectedValue
+      }
+      console.log(dadosColetadosCriarHabitos)
+      return Request.createHabit(dadosColetadosCriarHabitos);
+    })
+
+    // Final Evento do CLick para receber os dados dos inputs, salvar na variavel dadosColetados e retornar a requisição.
+
+   
+    // Inicio Evento do Click para receber dados dos inputs Editar Perfil e salvar na variavel Dados
+    
+    // const editProfile = document.querySelector("#editProfile");
+    // editProfile.addEventListener("click", (event) => {
+    //   event.preventDefault();
+    //   const btnSave = document.getElementById("btnSave");
+    //   console.log(btnSave)
+    // });
+
+    
   }
 
   static modalDelete(e) {
@@ -77,7 +113,6 @@ export default class Event {
     content.append(Modals.delete(this.targetId));
   }
 
-
   static returnModal(e) {
     e.preventDefault()
 
@@ -90,4 +125,10 @@ export default class Event {
 
     content.append(Modals.editHabit());
   }
+
+  static logOutProfile(){
+    window.location.replace('../../index.html')
+    window.localStorage.clear()
+  }
+
 }

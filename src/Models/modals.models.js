@@ -70,11 +70,13 @@ export default class Modals {
     placeholder,
     buttonType,
     classList,
-    buttonValue
+    buttonValue,
+    identification
   ) {
     const button = this.createHtmlElement(element, classList);
     button.type = buttonType;
     button.name = "modalData";
+    button.id   = identification;
     buttonValue === "" ? buttonValue : (button.value = buttonValue);
     !placeholder ? placeholder : (button.innerText = placeholder);
 
@@ -169,7 +171,9 @@ export default class Modals {
       "button",
       "Inserir",
       "submit",
-      "modal__submit"
+      "modal__submit",
+      "",
+      "buttonIdTeste"
     );
 
     // implementando corpo de modal ao container
@@ -319,7 +323,9 @@ export default class Modals {
       "button",
       "Salvar alterações",
       "submit",
-      "modal__submit"
+      "modal__submit",
+      "",
+      "btnSave"
     );
 
     // implementando corpo de modal ao container
