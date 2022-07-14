@@ -75,15 +75,15 @@ export default class Request {
 
     fetch(`${this.baseUrl}/habits`, options)
       .then((response) => response.json())
-
       .then((response) => {
         Render.habitList(num, response)
-        Event.carregarMais(response.length)
+        const btnFiltrarTodos = document.querySelector("#opAll")
+        const btnFiltrarFeitos = document.querySelector("#opComplete")
+
+        btnFiltrarTodos.addEventListener("click", ()=>{
+          
+        })
       })
-
-      //.then((response) => Render.habitList(response, !num ? response.length : num))
-      // conflito gerado nessa linha
-
       .catch((err) => console.error(err));
   }
 

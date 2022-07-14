@@ -17,6 +17,7 @@ export default class Event {
         data[name] = value;
       }
     }
+    console.log("oi")
     Request.login(data);
   }
 
