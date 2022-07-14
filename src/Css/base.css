@@ -18,7 +18,7 @@
   --color-black-1:   rgb(52, 58, 64);
   --color-black-2:   rgb(33, 37, 41);
   --color-black-3:   rgb(0, 0, 0);
-  --color-black-fade:rgba(0, 0, 0, 0.502);
+  --color-black-fade:rgba(0, 0, 0, 0.5);
 
   /* Box-shadow */
   --shadow-container: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
