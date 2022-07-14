@@ -51,6 +51,8 @@ export default class Render {
     tag.classList.add("category__tag");
     editor.classList.add("habit__editor");
 
+    editor.value = "Editar hábito";
+
     title.innerText = habit.habit_title;
     description.innerText = habit.habit_description;
     tag.innerText = habit.habit_category;
@@ -60,15 +62,17 @@ export default class Render {
       checkbox.classList.add("habit__checkbox--mark");
       title.classList.add("scratch");
 
-      Request.completeHabit(habit.habit_id)
-    })
-    
+      Request.completeHabit(habit.habit_id);
+    });
+
+    editor.addEventListener("click", Event.modal);
+
     if (habit.habit_status) {
       item.classList.add("complete");
       checkbox.classList.add("habit__checkbox--mark");
       title.classList.add("scratch");
     }
-    
+
     if (response.length > 0) {
       category.append(tag);
       item.append(checkbox, title, description, category, editor);
@@ -76,21 +80,27 @@ export default class Render {
     }
   }
 
-  static menuDropDown() {
-    const getMenuContainer = document.querySelector(".dropdownMenu__container");
-    const createDivContainer = document.createElement("div");
-    createDivContainer.classList = "dropdown";
-    const figureDropDown = document.createElement("figure");
-    figureDropDown.classList = "figureDropDown menu__container__foto";
-    const createUlList = document.createElement("ul");
-    createUlList.classList = "dropdown-content";
-    const createLiEditarPerfil = document.createElement("li");
-    createLiEditarPerfil.innerText = "Editar Perfil";
-    const createLiLogout = document.createElement("li");
-    createLiLogout.innerText = "Sair";
-
-    createUlList.append(createLiEditarPerfil, createLiLogout);
-    createDivContainer.append(figureDropDown, createUlList);
-    getMenuContainer.append(createDivContainer);
-  }
+  // static menuDropDown() {
+  //   const getMenuContainer = document.querySelector(".dropdownMenu__container");
+  //   const createDivContainer = document.createElement("div");
+  //   createDivContainer.classList = "dropdown";
+  //   const figureDropDown = document.createElement("figure");
+  //   figureDropDown.classList = "figureDropDown menu__container__foto";
+  //   const createUlList = document.createElement("ul");
+  //   createUlList.classList = "dropdown-content";
+  //   const createLiEditarPerfil = document.createElement("li");
+  //   createLiEditarPerfil.classList.add(".drop-down__edit");
+  //   createLiEditarPerfil.innerText = "lalaa";
+  //   createLiEditarPerfil.value = "Editar perfil";
+  //   const createLiLogout = document.createElement("li");
+  //   createLiLogout.classList.add("drop-down__logout");
+  //   createLiLogout.innerText = "Sair";
+    
+  //   createLiEditarPerfil.addEventListener("click", Event.modal);
+    
+  //   createUlList.append(createLiEditarPerfil, createLiLogout);
+  //   createDivContainer.append(figureDropDown, createUlList);
+  //   getMenuContainer.append(createDivContainer);
+  //   console.log(getMenuContainer);
+  // }
 }

@@ -8,18 +8,30 @@
     <link rel="stylesheet" href="../Css/reset.css" />
     <link rel="stylesheet" href="../Css/base.css" />
     <link rel="stylesheet" href="../Css/homepage.css" />
-
+    <link rel="stylesheet" href="../Css/modal.css">
     <title>Capstone - Homepage</title>
   </head>
   <body>
     <header class="page__header">
       <div class="header__menu">
         <h2 class="menu__titulo">KenzieHabit</h2>
-        <nav class="dropdownMenu__container"></nav>
+        <div class="dropdownMenu__container">
+          <div class="dropdown">
+            <figure class="figureDropDown menu__container__foto">
+              <!-- Imagem de AVATAR via API -->
+            </figure>
+            <section class="dropdown-content">
+              <button class="drop-down__edit dropDown__button" value="Editar perfil" id="editProfile">Editar Perfil</button>
+              <button class="drop-down__logout dropDown__button">Sair</button>
+            </section>
+          </div>
+        </div>
       </div>
       <div class="header__perfil">
         <div class="header__perfil-container">
-          <figure class="perfil__container__foto"></figure>
+          <figure class="perfil__container__foto">
+            <!-- Imagem de AVATAR via API -->
+          </figure>
           <h2 class="perfil__titulo"></h2>
         </div>
         <div id="simetria"></div>
@@ -31,7 +43,11 @@
         <nav class="intro__options">
           <h4 class="options__filter" id="opAll">Todos</h4>
           <h4 class="options__filter" id="opComplete">Concluídos</h4>
-          <button id="buttonCriarHabito" class="options__create submit-button">
+          <button
+            id="buttonCriarHabito"
+            class="options__create submit-button"
+            value="Criar hábito"
+          >
             Criar
           </button>
         </nav>
@@ -62,8 +78,8 @@
     <div class="modal-screen">
       <section class="modal__container">
         <header class="modal__header">
-          <h3 class="modal-header__title">Editar hábito</h3>
-          <button class="modal-header__exit-button"></button>
+          <h3 class="modal-header__title"></h3>
+          <button class="modal-header__exit-button" value="close"></button>
         </header>
         <!-- renderização dos MODAIS -->
       </section>
