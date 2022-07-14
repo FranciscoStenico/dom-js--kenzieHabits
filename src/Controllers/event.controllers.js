@@ -49,6 +49,7 @@ export default class Event {
 
     // Inicio Evento do CLick para receber os dados dos inputs Criar Habitos, salvar na variavel dadosColetados e retornar a requisição.
     const buttonInserirHabito = document.getElementById("buttonIdTeste");
+    buttonInserirHabito? 
     buttonInserirHabito.addEventListener("click", (event) =>{
       event.preventDefault();
       const getTitleValue   = document.querySelector("#title");
@@ -64,21 +65,41 @@ export default class Event {
       }
       console.log(dadosColetadosCriarHabitos)
       return Request.createHabit(dadosColetadosCriarHabitos);
-    })
+    }) : buttonInserirHabito;
 
     // Final Evento do CLick para receber os dados dos inputs, salvar na variavel dadosColetados e retornar a requisição.
 
    
     // Inicio Evento do Click para receber dados dos inputs Editar Perfil e salvar na variavel Dados
-    
-    // const editProfile = document.querySelector("#editProfile");
-    // editProfile.addEventListener("click", (event) => {
-    //   event.preventDefault();
-    //   const btnSave = document.getElementById("btnSave");
-    //   console.log(btnSave)
-    // });
 
+    const newUserProfileName = document.querySelector(".perfil__titulo")
     
+
+    const buttonSaveEditProfile = document.querySelector('.modal__submit')
+    buttonSaveEditProfile?
+
+    buttonSaveEditProfile.addEventListener("click", (event) => {
+      event.preventDefault();
+      let body = {}
+      let newDataProfile = document.querySelector(".modal.editProfile");
+          newDataProfile = new FormData(newDataProfile)
+
+          for(let [key, value] of newDataProfile) {
+            body[key] = value;
+        }
+        
+     
+        const modalScreen = document.querySelector(".modal-screen");
+        modalScreen.classList.toggle("modal-open");
+
+        if(body.newUserName !== ""){
+          localStorage.setItem("@kenzie-habits: NomeDeUsuario", body.newUserName)
+          window.location.reload()
+        }
+
+    })
+    :buttonSaveEditProfile;
+
   }
 
   static logOutProfile(){

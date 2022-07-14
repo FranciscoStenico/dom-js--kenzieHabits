@@ -59,8 +59,8 @@ export default class Render {
 
     checkbox.addEventListener("click", () => {
       item.classList.add("complete");
-      checkbox.classList.add("habit__checkbox--mark");
-      title.classList.add("scratch");
+      checkbox.classList.toggle("habit__checkbox--mark");
+      title.classList.toggle("scratch");
 
       Request.completeHabit(habit.habit_id);
     });
