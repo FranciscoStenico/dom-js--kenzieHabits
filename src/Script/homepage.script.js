@@ -21,5 +21,7 @@ modalClose.addEventListener("click", Event.modal);
 const logOutBtn = document.querySelector("#logOutBtn");
 logOutBtn.addEventListener("click", Event.logOutProfile);
 
+const btnCarregarMais = document.getElementById("btnCarregarMais");
+btnCarregarMais.addEventListener("click", Event.carregarMais);
 
 

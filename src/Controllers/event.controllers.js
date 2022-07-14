@@ -65,20 +65,14 @@ export default class Event {
       console.log(dadosColetadosCriarHabitos)
       return Request.createHabit(dadosColetadosCriarHabitos);
     })
-
-    // Final Evento do CLick para receber os dados dos inputs, salvar na variavel dadosColetados e retornar a requisição.
-
-   
-    // Inicio Evento do Click para receber dados dos inputs Editar Perfil e salvar na variavel Dados
     
-    // const editProfile = document.querySelector("#editProfile");
-    // editProfile.addEventListener("click", (event) => {
-    //   event.preventDefault();
-    //   const btnSave = document.getElementById("btnSave");
-    //   console.log(btnSave)
-    // });
+  }
 
-    
+  static carregarMais(event){
+    event.preventDefault()
+    // const valoraleatorio = Math.floor(Math.random(0, event) * 10);
+    // console.log(valoraleatorio);
+    return Request.listHabits(1) // Carrega sempre de 1 por 1.
   }
 
   static logOutProfile(){

@@ -1,4 +1,5 @@
 import Render from "../Models/render.models.js";
+import Event from "../Controllers/event.controllers.js";
 
 export default class Request {
   static baseUrl    = "https://habits-kenzie.herokuapp.com/api";
@@ -74,7 +75,10 @@ export default class Request {
 
     fetch(`${this.baseUrl}/habits`, options)
       .then((response) => response.json())
-      .then((response) => Render.habitList(num, response))
+      .then((response) => {
+        Render.habitList(num, response)
+        Event.carregarMais(response.length)
+      })
       .catch((err) => console.error(err));
   }
 
