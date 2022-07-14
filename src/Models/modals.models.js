@@ -324,7 +324,9 @@ export default class Modals {
       "button",
       "Salvar alterações",
       "submit",
-      "modal__submit"
+      "modal__submit",
+      "",
+      "btnSave"
     );
 
 

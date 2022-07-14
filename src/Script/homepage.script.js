@@ -21,8 +21,5 @@ modalClose.addEventListener("click", Event.modal);
 const logOutBtn = document.querySelector("#logOutBtn");
 logOutBtn.addEventListener("click", Event.logOutProfile);
 
-const btnInserirHabito = document.getElementById("buttonIdTeste");
-console.log(btnInserirHabito)
-// btnInserirHabito.addEventListener("click", () => {
-//   Event.coletarDadosCriarHabitos
-// });
+
+
