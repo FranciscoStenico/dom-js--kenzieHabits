@@ -2,10 +2,9 @@ import Request from "./requisicao.controllers.js";
 import Modals from "../Models/modals.models.js";
 
 export default class Event {
+  static submitLogin(e) {
+    e.preventDefault();
 
-  static submitLogin(event) {
-    event.preventDefault();
- 
     const formDeLogin = document.querySelector(".form-input__content");
     const data = {};
 
@@ -21,6 +20,15 @@ export default class Event {
     Request.login(data);
   }
 
+  static expandContent(e) {
+    e.preventDefault();
+
+    Request.listHabits();
+    setTimeout(() => {
+      location.reload();
+    }, 100);
+  }
+
   static removerErro() {
     const mensagemErro   = document.querySelector(".modal__content");
     const btnRemoverErro = document.querySelector(".content__delete-button");
@@ -28,22 +36,31 @@ export default class Event {
       mensagemErro.style.display = "none";
     });
   }
-
+  
   static modal(e) {
     e.preventDefault();
-    const value       = e.target.value;
+    
+    console.log(e.target.id)
+    localStorage.setItem("@kenzie-habits: eventId", e.target.id);
+
+    const container = document.querySelector(".modal__container");
+    container.classList.remove("flat");
+
+    const value = e.target.value;
+
     const modalScreen = document.querySelector(".modal-screen");
     modalScreen.classList.toggle("modal-open");
-    
+
     if (value === "close") {
-      const form      = document.querySelector(".modal");
-      Modals.bodyDocument.removeChild(form) 
+    
+      const form = document.querySelector(".modal");
+      Modals.bodyDocument.removeChild(form);
     } else {
-      
-      const title     = document.querySelector(".modal-header__title");
+      const title = document.querySelector(".modal-header__title");
       title.innerText = value;
-      
-      const form      = Modals.creatStructure(value);
+
+      const form = Modals.creatStructure(value);
+
       Modals.bodyDocument.append(form);
     }
 
@@ -79,6 +96,34 @@ export default class Event {
     // });
 
     
+  }
+
+  static modalDelete(e) {
+    e.preventDefault();
+
+    const value = e.target.value;
+    const form = document.querySelector(".modal");
+
+    const content = Modals.bodyDocument;
+    content.removeChild(form);
+
+    const title = document.querySelector(".modal-header__title");
+    title.innerText = value;
+
+    content.append(Modals.delete(this.targetId));
+  }
+
+  static returnModal(e) {
+    e.preventDefault()
+
+    const modalContainer = document.querySelector(".modal__container");
+    modalContainer.classList.remove("flat");
+
+    const content = Modals.bodyDocument;
+    const form = document.querySelector(".modal");
+    content.removeChild(form);
+
+    content.append(Modals.editHabit());
   }
 
   static logOutProfile(){
