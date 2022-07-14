@@ -68,7 +68,7 @@ export default class Event {
 
     // Final Evento do CLick para receber os dados dos inputs, salvar na variavel dadosColetados e retornar a requisição.
 
-
+   
     // Inicio Evento do Click para receber dados dos inputs Editar Perfil e salvar na variavel Dados
     
     // const editProfile = document.querySelector("#editProfile");
