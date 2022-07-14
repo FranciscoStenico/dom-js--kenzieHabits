@@ -65,33 +65,8 @@
           <h3 class="modal-header__title">Editar hábito</h3>
           <button class="modal-header__exit-button"></button>
         </header>
-        <form class="modal__form">
-          <label class="form__label form__habit-title" for="modalTitle"
-            >Título<input class="modal__input modal-habit__title" type="text" id="modalTitle"
-          /></label>
-          <label class="form__label form__habit--description" for="habitDescription"
-            >Descrição<textarea class="modal__input modal-habit__description" name="habitDescription" id="habitDescription"></textarea>
-          </label>
-          <label class="form__label" for="modalCategory">Categoria</label>
-          <select class="modal__input form__select" name="modalCategory" id="formSelect">
-            <option value="" selected disabled>Escolha a categoria...</option>
-            <option value="saude">Saúde</option>
-            <option value="estudos">Estudos</option>
-            <option value="casa">Casa</option>
-            <option value="trabalho">Trabalho</option>
-            <option value="lazer">Lazer</option>
-          </select>
-          <div class="form__status-container">
-            <h4 class="form__status-title">Status</h4>
-            <input type="checkbox" id="statusModal" />
-          </div>
-          <div class="form__buttons-container">
-            <button class="modal__edit-buttons button__delete">Excluir</button>
-            <button class="modal__edit-buttons button__submit">Salvar alterações</button>
-          </div>
-        </form>
+        <!-- renderização dos MODAIS -->
       </section>
-      <!-- renderização dos MODAIS -->
     </div>
     <script type="module" src="../Script/homepage.script.js"></script>
   </body>
