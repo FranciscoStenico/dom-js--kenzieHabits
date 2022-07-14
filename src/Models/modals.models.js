@@ -33,7 +33,8 @@ export default class Modals {
     actionTypeTitle,
     classListActionType,
     placeholder,
-    identification
+    identification,
+    nameContent
   ) {
     let containerActionBox = this.createHtmlElement(
       "div",
@@ -57,7 +58,8 @@ export default class Modals {
     textActionBox = this.settingAtributesTextActionBox(
       textActionBox,
       classListActionType,
-      placeholder
+      placeholder,
+      nameContent
     );
 
     containerActionBox.append(containerlabel);
@@ -93,11 +95,12 @@ export default class Modals {
   static settingAtributesTextActionBox(
     tagToSet,
     setAttributeId,
-    setAttributePlaceholder
+    setAttributePlaceholder,
+    nameContent
   ) {
     const tag = tagToSet;
 
-    tag.name = "content";
+    tag.name = nameContent;
     tag.id = setAttributeId;
     tag.style.resize = "none";
     tag.placeholder = setAttributePlaceholder;
@@ -308,7 +311,9 @@ export default class Modals {
       "input",
       "Nome de usuario",
       "title",
-      "Novo nome"
+      "Novo nome",
+      'edit',
+      'newUserName'
     );
 
     const boxActionHabitDescription = this.createActionBox(
@@ -316,7 +321,8 @@ export default class Modals {
       "URL da imagem do perfil",
       "modal__editImg",
       "Nova foto de perfil",
-      "3"
+      "3",
+      'newUrl'
     );
 
     const createActionBoxButtonSalvarPerfil = this.createActionBoxButton(

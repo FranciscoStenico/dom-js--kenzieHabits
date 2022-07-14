@@ -63,15 +63,15 @@ export default class Render {
       checkbox.classList.toggle("habit__checkbox--mark");
       title.classList.toggle("scratch");
 
-      Request.completeHabit(habit.habit_id);
+      // Request.completeHabit(habit.habit_id);
     });
 
     editor.addEventListener("click", Event.modal);
 
     if (habit.habit_status) {
-      item.classList.add("complete");
-      checkbox.classList.add("habit__checkbox--mark");
-      title.classList.add("scratch");
+      item.classList.toggle("complete");
+      checkbox.classList.toggle("habit__checkbox--mark");
+      title.classList.toggle("scratch");
     }
 
     if (response.length > 0) {
