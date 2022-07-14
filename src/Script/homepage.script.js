@@ -4,7 +4,7 @@ import Event from "../Controllers/event.controllers.js"
 
 setTimeout(() => {
   Render.headerData();
-  Request.listHabits(5);
+  Request.listHabits();
 }, 100);
 
 // Render.menuDropDown();
@@ -17,3 +17,6 @@ create.addEventListener("click", Event.modal);
 
 const modalClose = document.querySelector(".modal-header__exit-button");
 modalClose.addEventListener("click", Event.modal);
+
+const expand = document.querySelector(".content__expand");
+expand.addEventListener("click", Event.expandContent);

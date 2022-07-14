@@ -2,8 +2,6 @@ import Request from "./requisicao.controllers.js";
 import Modals from "../Models/modals.models.js";
 
 export default class Event {
-  static eventId = "";
-
   static submitLogin(e) {
     e.preventDefault();
 
@@ -22,6 +20,15 @@ export default class Event {
     Request.login(data);
   }
 
+  static expandContent(e) {
+    e.preventDefault();
+
+    Request.listHabits();
+    setTimeout(() => {
+      location.reload();
+    }, 100);
+  }
+
   static removerErro() {
     const mensagemErro = document.querySelector(".modal__content");
     const btnRemoverErro = document.querySelector(".content__delete-button");
@@ -29,10 +36,12 @@ export default class Event {
       mensagemErro.style.display = "none";
     });
   }
-
+  
   static modal(e) {
     e.preventDefault();
-    this.eventId = e.target.id;
+    
+    console.log(e.target.id)
+    localStorage.setItem("@kenzie-habits: eventId", e.target.id);
 
     const container = document.querySelector(".modal__container");
     container.classList.remove("flat");
@@ -55,7 +64,6 @@ export default class Event {
 
   static modalDelete(e) {
     e.preventDefault();
-    console.log(this.eventId);
 
     const value = e.target.value;
     const form = document.querySelector(".modal");
@@ -66,7 +74,7 @@ export default class Event {
     const title = document.querySelector(".modal-header__title");
     title.innerText = value;
 
-    content.append(Modals.delete(this.targetId))
+    content.append(Modals.delete(this.targetId));
   }
 
 
@@ -81,11 +89,5 @@ export default class Event {
     content.removeChild(form);
 
     content.append(Modals.editHabit());
-  }
-
-  static confirmDelete(e) {
-    e.preventDefault()
-
-
   }
 }

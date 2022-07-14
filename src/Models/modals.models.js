@@ -1,6 +1,7 @@
 import Event from "../Controllers/event.controllers.js";
 
 export default class Modals {
+  static eventId = localStorage.getItem("@kenzie-habits: eventId");
   static creatStructure(typeOfModal) {
     switch (typeOfModal) {
       case "Criar hábito":
@@ -333,7 +334,7 @@ export default class Modals {
     return formModal;
   }
 
-  static delete(id) {
+  static delete() {
     const modalContainer = document.querySelector(".modal__container");
     modalContainer.classList.add("flat");
     // BLOCOS NECESSARIS PARA MODAL DELETAR HABITO
@@ -384,7 +385,14 @@ export default class Modals {
       "submit",
       "modal__submit deleteConfirm"
     );
+    deleteButtonConfirme.addEventListener("click", (e) => {
+      e.preventDefault();
 
+      setTimeout(() => {
+        console.log(this.eventId);
+        // localStorage.removeItem("@kenzie-habits: eventId");
+      }, 200);
+    });
 
     conntainerDeleteButtonCancel.append(
       deleteButtonCancel,
