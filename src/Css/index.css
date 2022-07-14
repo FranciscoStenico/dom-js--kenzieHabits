@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-color: #4150D2;
+    background-color: var(--color-brand-1);
     background-size: cover;
     width: 40%;
     height: 100%;
@@ -82,6 +82,7 @@
     font-size: 14px;
     line-height: 17px;
     border: solid 2px transparent;
+    background-color: var(--color-whitesmoke);
 }
 
 .data__password{
@@ -97,17 +98,23 @@
     font-size: 14px;
     line-height: 17px;
     border: solid 2px transparent;
+    background-color: var(--color-whitesmoke);
+}
+
+.data__email:focus, 
+.data__password {
+    outline: none;
 }
 
 .data__password:hover{
     transition: 400ms;
-    border: #4150D2 solid 2px;
+    border: var(--color-brand-1) solid 2px;
     position: relative;
 }
 
 .data__email:hover{
     transition: 400ms;
-    border: #4150D2 solid 2px;
+    border: var(--color-brand-1) solid 2px;
     position: relative;
 }
 
@@ -212,7 +219,7 @@
         text-align: center;
         align-items: center;
         justify-content: center;
-        background-color: #4150D2;
+        background-color: var(--color-brand-1);
         width: 100%;
         height: 640px;
     }
@@ -408,7 +415,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: #4150D2;
+        background-color: var(--color-brand-1);
         width: 100%;
         height: 640px;
     }
