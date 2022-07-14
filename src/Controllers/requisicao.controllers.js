@@ -75,10 +75,15 @@ export default class Request {
 
     fetch(`${this.baseUrl}/habits`, options)
       .then((response) => response.json())
+
       .then((response) => {
         Render.habitList(num, response)
         Event.carregarMais(response.length)
       })
+
+      //.then((response) => Render.habitList(response, !num ? response.length : num))
+      // conflito gerado nessa linha
+
       .catch((err) => console.error(err));
   }
 
@@ -135,7 +140,7 @@ export default class Request {
 
     fetch(`${this.baseUrl}/api/habits/${id}`, options)
       .then((response) => response.json())
-      // .then(response => /* desenvolva aqui seu código de resposta */)
+      .then(response => console.log(response))
       .catch((err) => console.error(err));
   }
 }
