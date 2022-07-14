@@ -15,9 +15,7 @@
     <header class="page__header">
       <div class="header__menu">
         <h2 class="menu__titulo">KenzieHabit</h2>
-        <nav class="dropdownMenu__container">
-          
-        </nav>
+        <nav class="dropdownMenu__container"></nav>
       </div>
       <div class="header__perfil">
         <div class="header__perfil-container">
@@ -33,16 +31,24 @@
         <nav class="intro__options">
           <h4 class="options__filter" id="opAll">Todos</h4>
           <h4 class="options__filter" id="opComplete">Concluídos</h4>
-          <button id="buttonCriarHabito" class="options__create submit-button">Criar</button>
+          <button id="buttonCriarHabito" class="options__create submit-button">
+            Criar
+          </button>
         </nav>
       </section>
       <div class="content__table">
         <header class="table__header">
-          <h5 class="table-header__title table-header__title--status">Status</h5>
-          <h5 class="table-header__title table-header__title--habit-title">Título</h5>
+          <h5 class="table-header__title table-header__title--status">
+            Status
+          </h5>
+          <h5 class="table-header__title table-header__title--habit-title">
+            Título
+          </h5>
           <h5 class="table-header__title table__description">Descrição</h5>
           <h5 class="table-header__title table__category">Categoria</h5>
-          <h5 class="table-header__title table-header__title--editor">Editar</h5>
+          <h5 class="table-header__title table-header__title--editor">
+            Editar
+          </h5>
         </header>
         <ul class="table__list" id="habitsList">
           <!-- render via dos HÁBITOS -->
@@ -54,6 +60,37 @@
       <button class="content__expand submit-button">Carregar mais</button>
     </main>
     <div class="modal-screen">
+      <section class="modal__container">
+        <header class="modal__header">
+          <h3 class="modal-header__title">Editar hábito</h3>
+          <button class="modal-header__exit-button"></button>
+        </header>
+        <form class="modal__form">
+          <label class="form__label form__habit-title" for="modalTitle"
+            >Título<input class="modal__input modal-habit__title" type="text" id="modalTitle"
+          /></label>
+          <label class="form__label form__habit--description" for="habitDescription"
+            >Descrição<textarea class="modal__input modal-habit__description" name="habitDescription" id="habitDescription"></textarea>
+          </label>
+          <label class="form__label" for="modalCategory">Categoria</label>
+          <select class="modal__input form__select" name="modalCategory" id="formSelect">
+            <option value="" selected disabled>Escolha a categoria...</option>
+            <option value="saude">Saúde</option>
+            <option value="estudos">Estudos</option>
+            <option value="casa">Casa</option>
+            <option value="trabalho">Trabalho</option>
+            <option value="lazer">Lazer</option>
+          </select>
+          <div class="form__status-container">
+            <h4 class="form__status-title">Status</h4>
+            <input type="checkbox" id="statusModal" />
+          </div>
+          <div class="form__buttons-container">
+            <button class="modal__edit-buttons button__delete">Excluir</button>
+            <button class="modal__edit-buttons button__submit">Salvar alterações</button>
+          </div>
+        </form>
+      </section>
       <!-- renderização dos MODAIS -->
     </div>
     <script type="module" src="../Script/homepage.script.js"></script>
