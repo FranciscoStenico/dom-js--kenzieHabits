@@ -108,6 +108,7 @@ export default class Modals {
     return tag;
   }
 
+
   //----------Tags Options-----------------------------------------------------------------
 
   static appropriatingTagsOption(listOptionToCreate) {
@@ -297,7 +298,6 @@ export default class Modals {
     // retornando modal completo
     return formModal;
   }
-
   static editProfile() {
     const modalContainer = document.querySelector(".modal__container");
     modalContainer.classList.add("flat");

@@ -85,14 +85,14 @@ export default class Event {
 
     }) : buttonInserirHabito;
 
-    // Final Evento do CLick para receber os dados dos inputs, salvar na variavel dadosColetados e retornar a requisição.
 
-   
-    // Inicio Evento do Click para receber dados dos inputs Editar Perfil e salvar na variavel Dados
+    const newUserProfileName = document.querySelector(".perfil__titulo")
     
-      const buttonSaveEditProfile = document.querySelector('.modal__submit')
 
-      buttonSaveEditProfile.addEventListener("click", (event) => {
+    const buttonSaveEditProfile = document.querySelector('.modal__submit')
+    buttonSaveEditProfile?
+
+    buttonSaveEditProfile.addEventListener("click", (event) => {
       event.preventDefault();
       let body = {}
       let newDataProfile = document.querySelector(".modal.editProfile");
@@ -101,10 +101,18 @@ export default class Event {
           for(let [key, value] of newDataProfile) {
             body[key] = value;
         }
-        
-        console.log(body)
+     
+        const modalScreen = document.querySelector(".modal-screen");
+        modalScreen.classList.toggle("modal-open");
 
-        // console.log(editProfile)
+        if(body.newUserName !== ""){
+          localStorage.setItem("@kenzie-habits: NomeDeUsuario", body.newUserName)
+          window.location.reload()
+        }
+
+    })
+    :buttonSaveEditProfile;
+
     });
 
   }
@@ -116,7 +124,7 @@ export default class Event {
     return Request.listHabits(1) // Carrega sempre de 1 por 1.
   }
 
-  static modalDelete(e) {
+  static modalDelete(e) { 
     e.preventDefault();
 
     const value = e.target.value;
@@ -142,6 +150,7 @@ export default class Event {
     content.removeChild(form);
 
     content.append(Modals.editHabit());
+
   }
 
   static logOutProfile(){
