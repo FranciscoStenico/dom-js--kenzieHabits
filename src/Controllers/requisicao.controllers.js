@@ -1,15 +1,15 @@
 import Render from "../Models/render.models.js";
 
 export default class Request {
-  static baseUrl = "https://habits-kenzie.herokuapp.com/api";
-  static token = localStorage.getItem("@kenzie-habits: token");
+  static baseUrl    = "https://habits-kenzie.herokuapp.com/api";
+  static token      = localStorage.getItem("@kenzie-habits: token");
   static userAvatar = localStorage.getItem("@kenzie-habits: FotoDeUsuario");
-  static userName = localStorage.getItem("@kenzie-habits: NomeDeUsuario");
-  static userEmail = localStorage.getItem("@kenzie-habits: EmailDeUsuario")
+  static userName   = localStorage.getItem("@kenzie-habits: NomeDeUsuario");
+  static userEmail  = localStorage.getItem("@kenzie-habits: EmailDeUsuario")
 
   static async login(dados) {
     return await fetch(`${this.baseUrl}/userLogin`, {
-      method: "POST",
+      method : "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -34,7 +34,7 @@ export default class Request {
 
   static async editProfile(body) {
     const options = {
-      method: "PATCH",
+      method : "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.token}`,
@@ -60,7 +60,7 @@ export default class Request {
 
     fetch("https://habits-kenzie.herokuapp.com/api/habits", options)
       .then((response) => response.json())
-      // .then(response => /* desenvolva aqui seu código de resposta */)
+      .then(response => console.log(response))
       .catch((err) => console.error(err));
   }
 
@@ -80,7 +80,7 @@ export default class Request {
 
   static async listByCategory(category) {
     const options = {
-      method: "GET",
+      method : "GET",
       headers: {
         Authorization: `Bearer ${this.token}`,
       },
