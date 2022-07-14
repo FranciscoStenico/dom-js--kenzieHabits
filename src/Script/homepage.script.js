@@ -4,7 +4,7 @@ import Event from "../Controllers/event.controllers.js"
 
 setTimeout(() => {
   Render.headerData();
-  Request.listHabits(10);
+  Request.listHabits();
 }, 100);
 
 // Render.menuDropDown();
@@ -18,8 +18,13 @@ create.addEventListener("click", Event.modal);
 const modalClose = document.querySelector(".modal-header__exit-button");
 modalClose.addEventListener("click", Event.modal);
 
+const expand = document.querySelector(".content__expand");
+expand.addEventListener("click", Event.expandContent);
+
 const logOutBtn = document.querySelector("#logOutBtn");
 logOutBtn.addEventListener("click", Event.logOutProfile);
 
+const btnCarregarMais = document.getElementById("btnCarregarMais");
+btnCarregarMais.addEventListener("click", Event.carregarMais);
 
 

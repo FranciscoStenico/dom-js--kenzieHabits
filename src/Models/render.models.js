@@ -21,7 +21,7 @@ export default class Render {
     containerPerfil.appendChild(fotoPerfil);
   }
 
-  static habitList(index, response) {
+  static habitList(response, index) {
     index <= response.length
       ? response.forEach((habit, i) =>
           i < index ? this.habit(habit, response) : null
@@ -52,25 +52,27 @@ export default class Render {
     editor.classList.add("habit__editor");
 
     editor.value = "Editar hábito";
+    editor.id = habit.habit_id;
 
     title.innerText = habit.habit_title;
     description.innerText = habit.habit_description;
     tag.innerText = habit.habit_category;
 
     checkbox.addEventListener("click", () => {
-      item.classList.add("complete");
+      item.classList.toggle("complete");
+
       checkbox.classList.toggle("habit__checkbox--mark");
       title.classList.toggle("scratch");
 
-      Request.completeHabit(habit.habit_id);
+      // Request.completeHabit(habit.habit_id);
     });
 
     editor.addEventListener("click", Event.modal);
 
     if (habit.habit_status) {
-      item.classList.add("complete");
-      checkbox.classList.add("habit__checkbox--mark");
-      title.classList.add("scratch");
+      item.classList.toggle("complete");
+      checkbox.classList.toggle("habit__checkbox--mark");
+      title.classList.toggle("scratch");
     }
 
     if (response.length > 0) {
