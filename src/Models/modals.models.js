@@ -188,6 +188,10 @@ export default class Modals {
   static editHabit() {
     // BLOCOS NECESSARIS PARA MODAL EDITAR HABITO
 
+    // Elemento necessario para atribuir o modal a tela
+    const modalScreen = document.querySelector(".modal-screen");
+
+
     // bloco container
     const formModal = this.createHtmlElement("form", "modal editHabit");
 
@@ -249,7 +253,7 @@ export default class Modals {
     const boxActionHabitButtonSave = this.createActionBoxButton(
       "button",
       "Salvar",
-      "checkbox",
+      "button",
       "modal__submit save",
       ""
     );
@@ -257,6 +261,22 @@ export default class Modals {
       boxActionHabitButtonDelete,
       boxActionHabitButtonSave
     );
+
+    // Adicionando addEventListener ao butao excluir 
+    boxActionHabitButtonDelete.addEventListener('click', () => {
+      this.delete()
+      modalScreen.classList.toggle("modal-open");
+      this.bodyDocument.removeChild(formModal) 
+    })
+
+    // Adicionando addEventListener ao butao excluir 
+    boxActionHabitButtonSave.addEventListener('click', () => {
+      modalScreen.classList.toggle("modal-open");
+      this.bodyDocument.removeChild(formModal) 
+
+      //Requisiçao da API para salvar
+      console.log('Sucesso')
+    })
 
  
     // implementando corpo de modal ao container
@@ -283,9 +303,9 @@ export default class Modals {
     // bloco caixas de ação
     const boxActionHabitTitle = this.createActionBox(
       "input",
-      "Título",
+      "Nome de usuario",
       "title",
-      "Tarefa a ser editada"
+      "Novo nome"
     );
 
     const boxActionHabitDescription = this.createActionBox(
@@ -302,6 +322,7 @@ export default class Modals {
       "submit",
       "modal__submit"
     );
+
 
     // implementando corpo de modal ao container
     formModal.append(
