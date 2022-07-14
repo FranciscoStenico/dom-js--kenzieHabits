@@ -47,4 +47,9 @@ export default class Event {
       Modals.bodyDocument.append(form);
     }
   }
+
+  static logOutProfile(){
+    window.location.replace('../../index.html')
+    window.localStorage.clear()
+  }
 }
