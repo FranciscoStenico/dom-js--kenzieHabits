@@ -82,6 +82,7 @@ export default class Event {
       }
       console.log(dadosColetadosCriarHabitos)
       return Request.createHabit(dadosColetadosCriarHabitos);
+
     }) : buttonInserirHabito;
 
     // Final Evento do CLick para receber os dados dos inputs, salvar na variavel dadosColetados e retornar a requisição.
@@ -106,7 +107,11 @@ export default class Event {
         // console.log(editProfile)
     });
 
-    
+  static carregarMais(event){
+    event.preventDefault()
+    // const valoraleatorio = Math.floor(Math.random(0, event) * 10);
+    // console.log(valoraleatorio);
+    return Request.listHabits(1) // Carrega sempre de 1 por 1.
   }
 
   static modalDelete(e) {
