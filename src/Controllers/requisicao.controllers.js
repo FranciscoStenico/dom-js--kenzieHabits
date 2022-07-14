@@ -74,7 +74,15 @@ export default class Request {
 
     fetch(`${this.baseUrl}/habits`, options)
       .then((response) => response.json())
-      .then((response) => Render.habitList(num, response))
+      .then((response) => {
+        Render.habitList(num, response)
+        const btnFiltrarTodos = document.querySelector("#opAll")
+        const btnFiltrarFeitos = document.querySelector("#opComplete")
+
+        btnFiltrarTodos.addEventListener("click", ()=>{
+          
+        })
+      })
       .catch((err) => console.error(err));
   }
 
