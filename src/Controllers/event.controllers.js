@@ -52,4 +52,20 @@ export default class Event {
     window.location.replace('../../index.html')
     window.localStorage.clear()
   }
+
+  static coletarDadosCriarHabitos(event){
+
+    event.preventDefault();
+    const getTitleValue = document.querySelector("#title");
+    const getDescriptionValue = document.querySelector("#description");
+    const getSelectValue = document.querySelector(".textArea");
+
+    // retornar um Objeto com os valores coletados dos inputs
+    const dadosColetados = {
+      TitleValue: getTitleValue.value,
+      DescriptionValue: getDescriptionValue.value,
+      SelectValue: getSelectValue.value
+    }
+    console.log(dadosColetados);
+  }
 }
