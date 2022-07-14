@@ -60,6 +60,7 @@ export default class Render {
 
     checkbox.addEventListener("click", () => {
       item.classList.toggle("complete");
+
       checkbox.classList.toggle("habit__checkbox--mark");
       title.classList.toggle("scratch");
 

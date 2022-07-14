@@ -81,14 +81,9 @@ export default class Event {
       }
       console.log(dadosColetadosCriarHabitos)
       return Request.createHabit(dadosColetadosCriarHabitos);
+
     }) : buttonInserirHabito;
 
-    // Final Evento do CLick para receber os dados dos inputs, salvar na variavel dadosColetados e retornar a requisição.
-
-   
-
-    
-      // Inicio Evento do Click para receber dados dos inputs Editar Perfil e salvar na variavel Dados
 
     const newUserProfileName = document.querySelector(".perfil__titulo")
     
@@ -96,7 +91,6 @@ export default class Event {
     const buttonSaveEditProfile = document.querySelector('.modal__submit')
     
     buttonSaveEditProfile?
-
     buttonSaveEditProfile.addEventListener("click", (event) => {
       event.preventDefault();
       let body = {}
@@ -106,7 +100,6 @@ export default class Event {
           for(let [key, value] of newDataProfile) {
             body[key] = value;
         }
-        
      
         const modalScreen = document.querySelector(".modal-screen");
         modalScreen.classList.toggle("modal-open");
@@ -119,9 +112,18 @@ export default class Event {
     })
     :buttonSaveEditProfile;
 
+    });
+
   }
 
-  static modalDelete(e) {
+  static carregarMais(event){
+    event.preventDefault()
+    // const valoraleatorio = Math.floor(Math.random(0, event) * 10);
+    // console.log(valoraleatorio);
+    return Request.listHabits(1) // Carrega sempre de 1 por 1.
+  }
+
+  static modalDelete(e) { 
     e.preventDefault();
 
     const value = e.target.value;
@@ -147,6 +149,7 @@ export default class Event {
     content.removeChild(form);
 
     content.append(Modals.editHabit());
+
   }
 
   static logOutProfile(){
