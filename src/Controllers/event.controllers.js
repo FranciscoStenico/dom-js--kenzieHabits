@@ -107,6 +107,8 @@ export default class Event {
         // console.log(editProfile)
     });
 
+  }
+
   static carregarMais(event){
     event.preventDefault()
     // const valoraleatorio = Math.floor(Math.random(0, event) * 10);
