@@ -11,6 +11,7 @@
   box-shadow: 0px 4px 30px -10px var(--shadow-container);
 }
 
+
 .menu__titulo {
   font-weight: 700;
   font-size: 22px;
@@ -77,8 +78,10 @@
   width: fit-content;
   display: flex;
   justify-content: space-between;
+  text-align: center;
   margin-bottom: 2rem;
   align-items: center;
+  
 }
 
 .perfil__container__foto {
@@ -108,6 +111,7 @@
   line-height: 24px;
   color: var(--color-white);
   margin: 0;
+  margin-bottom: 0;
 }
 
 .page__content {
@@ -389,7 +393,7 @@
 
   .perfil__titulo {
     height: 24px;
-    margin-bottom: 35px;
+    margin-bottom: 0px;
   }
 }
 
