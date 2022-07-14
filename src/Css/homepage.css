@@ -285,20 +285,23 @@
   display: none;
   position: absolute;
   min-width: 120px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
   z-index: 1;
   border-radius: 5px;
 }
 
-.dropdown-content li {
+.dropDown__button {
   color: #fff;
   padding: 16px 20px;
   text-decoration: none;
   display: block;
+  font-family: inherit;
+  width: 100%;
+  background-color: inherit;
 }
 
-.dropdown-content li:hover {
-  color: blue;
+.dropDown__button:hover {
+  color: var(--color-brand-1);
   background-color: #fff;
   border-radius: 5px;
   cursor: pointer;
@@ -314,7 +317,7 @@
 }
 
 .modal-screen {
-  display: flex;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
