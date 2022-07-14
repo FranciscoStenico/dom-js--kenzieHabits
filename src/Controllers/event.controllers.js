@@ -4,7 +4,7 @@ export default class Event {
   static submitLogin(event) {
     event.preventDefault();
 
-    const formDeLogin = document.querySelector(".formDosInputs");
+    const formDeLogin = document.querySelector(".form-input__content");
     const data = {};
 
     for (let i = 0; i < formDeLogin.length; i++) {
@@ -17,5 +17,13 @@ export default class Event {
       }
     }
     Request.login(data);
+  }
+
+  static removerErro(){
+    const mensagemErro = document.querySelector(".modal__content")
+    const btnRemoverErro = document.querySelector(".content__delete-button")
+    btnRemoverErro.addEventListener("click", ()=>{
+    mensagemErro.style.display = "none"
+})
   }
 }

@@ -1,10 +1,10 @@
-main{
+.allContent__box{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login{
+.box__login{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@ main{
     height: 400px;
 }
 
-.containerParteEscrita{
+.login__content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +27,7 @@ main{
     padding-left: 50px;
 }
 
-.tituloSite{
+.content__tituloSite{
     color: #FFFFFF;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -35,16 +35,16 @@ main{
     margin-bottom: 10%;
 }
 
-.paragrafoTelaDeLogin{
+.content__paragrafo{
     font-size: 24px;
-    width: 400px;
+    width: 100%;
     height: 64px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     color: #FFFFFF;
 }
 
-.ParagrafoRodape{
+.content__Rodape{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -53,7 +53,7 @@ main{
     color: #FFFFFF;
 }
 
-.formDosInputs{
+.form-input__content{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +61,7 @@ main{
     padding-top: 40px;
 }
 
-.TituloLogin{
+.content__title{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
@@ -69,8 +69,8 @@ main{
     line-height: 24px;
 }
 
-input{
-    width: 375px;
+.data__email{
+    width: 85%;
     height: 40px;
     border-radius: 4px;
     border: none;
@@ -82,16 +82,37 @@ input{
     font-size: 14px;
     line-height: 17px;
     border: solid 2px transparent;
-    
 }
 
-input:hover{
+.data__password{
+    width: 85%;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    border: solid 2px transparent;
+}
+
+.data__password:hover{
     transition: 400ms;
     border: #4150D2 solid 2px;
     position: relative;
 }
 
-label{
+.data__email:hover{
+    transition: 400ms;
+    border: #4150D2 solid 2px;
+    position: relative;
+}
+
+.content__data{
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -102,7 +123,7 @@ label{
     line-height: 17px;
 }
 
-.containerParteInputs{
+.box__form-input{
    width: 40%;
    height: 100%;
    padding-left: 40px;
@@ -114,8 +135,8 @@ label{
    box-shadow: 0px 4px 40px -7px rgba(0, 0, 0, 0.25);
 }
 
-.botaoLogin{
-    width: 376px;
+.content__sendData{
+    width: 85%;
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -132,14 +153,48 @@ label{
     font-weight: 600;
 }
 
-.arrasteMobile{
+.content__slide{
     display: none;
+}
+
+.modal__content{
+    display: none;
+    align-items: center;
+    padding-left: 0%;
+    width: 28vh;
+    height: 50px;
+    background: linear-gradient(to left,black , black, black,black, red);
+    color: var(--color-white);
+    position: absolute;
+    right: 2%;
+    bottom: 74.6%;
+    border-radius: 30px;
+    padding-left: 0.5vh;
+}
+
+.content__erro-message{
+    margin: 2%;
+}
+
+.content__delete-button{
+    display: flex;
+    font-family: 'Inter';
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: transparent;
+    width: 9.7%;
+    height: 50%;
+    border-radius: 100%;
+    border: none;
+    color: var(--color-white);
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 @media screen and (max-width: 768px){
-    .login{
+    .box__login{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -150,25 +205,30 @@ label{
         padding-left: 0;
     }
 
-    .containerParteEscrita{
+    .login__content{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        text-align: center;
         align-items: center;
+        justify-content: center;
         background-color: #4150D2;
         width: 100%;
         height: 640px;
     }
 
-    .tituloSite{
+    .content__tituloSite{
         color: #FFFFFF;
+        margin: 0;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
         font-family: 'Poppins', sans-serif;
         font-weight: 100%;
         font-size: 30px;
-        margin: 0% 0 20% 0;
+        margin-bottom: 100px;
     }
 
-    .paragrafoTelaDeLogin{
+    .content__paragrafo{
         font-size: 24px;
         width: 100%;
         height: 70px;
@@ -179,7 +239,7 @@ label{
         margin-bottom: 10%;
     }
 
-    .ParagrafoRodape{
+    .content__Rodape{
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
@@ -189,7 +249,7 @@ label{
         margin-bottom: 10%;
     }
 
-    .arrasteMobile{
+    .content__slide{
         display: flex;
         width: 100px;
         height: 100px;
@@ -198,7 +258,7 @@ label{
         justify-content: center;
     }
 
-    .arrasta{
+    .slide__image{
         margin-left: 200px;
         width: 100px;
         height: 100px;
@@ -206,7 +266,7 @@ label{
         transform-origin: left top 0;
     }
 
-    .containerParteInputs{
+    .box__content-input{
         width: 100%;
         height: 630px;
         display: flex;
@@ -215,26 +275,26 @@ label{
         align-items: center;
         border-radius: none;
      }
-     .TituloLogin{
+     .content__title{
         font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
         font-size: 30px;
         line-height: 24px;
-        margin-left: 44%;
+        margin: 0 auto;
         margin-bottom: 85px;
     }
 
-    .formDosInputs{
+    .form-input__content{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         width: 100%;
-        height: 100%;
+        height: 640px;
     }
 
-    label{
+    .content__data{
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -247,11 +307,11 @@ label{
         font-size: 14px;
         line-height: 17px;
         font-weight: bold;
-        margin-left: 4%;
+        margin-left: 0;
         
     }
 
-    input{
+    .data__email{
         width: 80%;
         height: 40px;
         border-radius: 4px;
@@ -268,9 +328,27 @@ label{
         margin-left: 10%;
     }
 
-    .botaoLogin{
+    .data__password{
+
+        width: 80%;
+        height: 40px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 25px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17px;
+        border: solid 2px transparent;
+        margin-top: 15px;
+        margin-left: 10%;
+    }
+
+    .content__sendData{
         margin-top: 30px;
-        margin-left: 17%;
+        margin-left: 9%;
         width: 73%;
         height: 40px;
         display: flex;
@@ -286,19 +364,34 @@ label{
         font-weight: 600;
     }
 
-    .containerParteEscrita{
+    .login__content{
         padding: 0;
         width: 100%;
     }
 
-    .containerParteInputs{
+    .box__form-input{
         width: 100%;
         padding-left: 0;
+    }
+
+    .modal__content{
+        display: none;
+        align-items: center;
+        padding-left: 0%;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(to left,black , black, black,black, red);
+        color: var(--color-white);
+        position: absolute;
+        right: 0%;
+        top: 830px;
+        border-radius: 0px;
+        padding-left: 0.5vh;
     }
 }
 
 @media screen and (max-width: 375px){
-    .login{
+    .box__login{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -309,7 +402,7 @@ label{
         padding-left: 0;
     }
 
-    .containerParteEscrita{
+    .login__content{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -319,7 +412,7 @@ label{
         height: 640px;
     }
 
-    .tituloSite{
+    .content__tituloSite{
         color: #FFFFFF;
         font-family: 'Poppins', sans-serif;
         font-weight: 100%;
@@ -327,7 +420,7 @@ label{
         margin: 0% 0 20% 0;
     }
 
-    .paragrafoTelaDeLogin{
+    .content__paragrafo{
         font-size: 24px;
         width: 100%;
         height: 70px;
@@ -338,7 +431,7 @@ label{
         margin-bottom: 10%;
     }
 
-    .ParagrafoRodape{
+    .content__Rodape{
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
@@ -348,7 +441,7 @@ label{
         margin-bottom: 10%;
     }
 
-    .arrasteMobile{
+    .content__slide{
         display: flex;
         width: 100px;
         height: 100px;
@@ -357,7 +450,7 @@ label{
         justify-content: center;
     }
 
-    .arrasta{
+    .slide__image{
         margin-left: 200px;
         width: 100px;
         height: 100px;
@@ -365,7 +458,7 @@ label{
         transform-origin: left top 0;
     }
 
-    .containerParteInputs{
+    .box__content-input{
         width: 100%;
         height: 630px;
         display: flex;
@@ -374,17 +467,19 @@ label{
         align-items: center;
         border-radius: none;
      }
-     .TituloLogin{
+     .content__title{
         font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
         font-size: 30px;
         line-height: 24px;
-        margin-left: 39%;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
         margin-bottom: 85px;
     }
 
-    .formDosInputs{
+    .form-input__content{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -393,7 +488,7 @@ label{
         height: 100%;
     }
 
-    label{
+    .content__data{
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -410,27 +505,9 @@ label{
         
     }
 
-    input{
-        width: 80%;
-        height: 40px;
-        border-radius: 4px;
-        border: none;
-        cursor: pointer;
-        margin-bottom: 25px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
-        border: solid 2px transparent;
-        margin-top: 15px;
-        margin-left: 10%;
-    }
-
-    .botaoLogin{
+    .data__email{
         margin-top: 30px;
-        margin-left: 23.2%;
-        width: 60%;
+        width: 80%;
         height: 40px;
         display: flex;
         flex-direction: row;
@@ -445,13 +522,66 @@ label{
         font-weight: 600;
     }
 
-    .containerParteEscrita{
+    .data__password{
+        margin-top: 30px;
+        width: 80%;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #415AF3;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        color: #FFFFFF;
+        font-family: 'Inter';
+        font-weight: 600;
+    }
+
+    .content__sendData{
+        margin-top: 30px;
+        margin-left: 17.1%;
+        width: 73%;
+        height: 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #415AF3;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        color: #FFFFFF;
+        font-family: 'Inter';
+        font-weight: 600;
+    }
+
+    .login__content{
         padding: 0;
         width: 100%;
     }
 
-    .containerParteInputs{
+    .box__form-input{
         width: 100%;
         padding-left: 0;
+        height: 630px;
     }
+
+    .modal__content{
+        display: none;
+        align-items: center;
+        padding-left: 0%;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(to left,black , black, black,black, red);
+        color: var(--color-white);
+        position: absolute;
+        right: 0%;
+        top: 800px;
+        border-radius: 0px;
+        padding-left: 0.5vh;
+    }
+    
+    
 }

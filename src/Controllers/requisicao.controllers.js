@@ -23,7 +23,13 @@ export default class Request {
         localStorage.setItem("@kenzie-habits: token", res.token);
         window.location.href = "./src/Pages/homepage.html";
       })
-      .catch((err) => console.log(err));
+      .catch((err) => { 
+        const mensagemErro = document.querySelector(".modal__content")
+        mensagemErro.style.display = "flex"
+        setTimeout(() => {
+          mensagemErro.style.display = "none"
+        }, 3000);
+    })
   }
 
   static async editProfile(body) {
