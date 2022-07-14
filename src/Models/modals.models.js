@@ -1,7 +1,6 @@
 import Event from "../Controllers/event.controllers.js";
 
 export default class Modals {
-  static eventId = localStorage.getItem("@kenzie-habits: eventId");
   static creatStructure(typeOfModal) {
     switch (typeOfModal) {
       case "Criar hábito":
@@ -400,9 +399,10 @@ export default class Modals {
     deleteButtonConfirme.addEventListener("click", (e) => {
       e.preventDefault();
 
+      console.log(localStorage.getItem("@kenzie-habits: eventId"));
+      
       setTimeout(() => {
-        console.log(this.eventId);
-        // localStorage.removeItem("@kenzie-habits: eventId");
+        localStorage.removeItem("@kenzie-habits: eventId");
       }, 200);
     });
 

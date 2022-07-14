@@ -17,7 +17,7 @@ export default class Event {
         data[name] = value;
       }
     }
-    console.log("oi")
+    console.log("oi");
     Request.login(data);
   }
 
@@ -31,16 +31,16 @@ export default class Event {
   }
 
   static removerErro() {
-    const mensagemErro   = document.querySelector(".modal__content");
+    const mensagemErro = document.querySelector(".modal__content");
     const btnRemoverErro = document.querySelector(".content__delete-button");
     btnRemoverErro.addEventListener("click", () => {
       mensagemErro.style.display = "none";
     });
   }
-  
+
   static modal(e) {
     e.preventDefault();
-    
+
     localStorage.setItem("@kenzie-habits: eventId", e.target.id);
 
     const container = document.querySelector(".modal__container");
@@ -52,7 +52,6 @@ export default class Event {
     modalScreen.classList.toggle("modal-open");
 
     if (value === "close") {
-    
       const form = document.querySelector(".modal");
       Modals.bodyDocument.removeChild(form);
     } else {
@@ -63,68 +62,66 @@ export default class Event {
 
       Modals.bodyDocument.append(form);
     }
-
-    // Inicio Evento do CLick para receber os dados dos inputs Criar Habitos, salvar na variavel dadosColetados e retornar a requisição.
-    const buttonInserirHabito = document.getElementById("buttonIdTeste");
-    buttonInserirHabito? 
-    buttonInserirHabito.addEventListener("click", (event) =>{
-      event.preventDefault();
-      const getTitleValue   = document.querySelector("#title");
-      const getSelectValue    = document.querySelector("select");
-      const getDescriptionValue = document.querySelector("#description");
-      const selectedValue = getSelectValue.options[getSelectValue.selectedIndex].value;
-  
-      // retornar um Objeto com os valores coletados dos inputs
-      const dadosColetadosCriarHabitos = {
-        "habit_title"      : getTitleValue.value,
-        "habit_description": getDescriptionValue.value,
-        "habit_category"   : selectedValue
-      }
-      console.log(dadosColetadosCriarHabitos)
-      return Request.createHabit(dadosColetadosCriarHabitos);
-
-    }) : buttonInserirHabito;
-
-
-    const newUserProfileName = document.querySelector(".perfil__titulo")
-    
-
-    const buttonSaveEditProfile = document.querySelector('.modal__submit')
-    
-    buttonSaveEditProfile?
-    buttonSaveEditProfile.addEventListener("click", (event) => {
-      event.preventDefault();
-      let body = {}
-      let newDataProfile = document.querySelector(".modal.editProfile");
-          newDataProfile = new FormData(newDataProfile)
-
-          for(let [key, value] of newDataProfile) {
-            body[key] = value;
-        }
-     
-        const modalScreen = document.querySelector(".modal-screen");
-        modalScreen.classList.toggle("modal-open");
-
-        if(body.newUserName !== ""){
-          localStorage.setItem("@kenzie-habits: NomeDeUsuario", body.newUserName)
-          window.location.reload()
-        }
-
-    })
-    :buttonSaveEditProfile;
-
-    });
-
   }
+  //   // Inicio Evento do CLick para receber os dados dos inputs Criar Habitos, salvar na variavel dadosColetados e retornar a requisição.
+  //   const buttonInserirHabito = document.getElementById("buttonIdTeste");
+  //   buttonInserirHabito?
+  //   buttonInserirHabito.addEventListener("click", (event) =>{
+  //     event.preventDefault();
+  //     const getTitleValue   = document.querySelector("#title");
+  //     const getSelectValue    = document.querySelector("select");
+  //     const getDescriptionValue = document.querySelector("#description");
+  //     const selectedValue = getSelectValue.options[getSelectValue.selectedIndex].value;
 
-  static carregarMais(event){
-    event.preventDefault()
+  //     // retornar um Objeto com os valores coletados dos inputs
+  //     const dadosColetadosCriarHabitos = {
+  //       "habit_title"      : getTitleValue.value,
+  //       "habit_description": getDescriptionValue.value,
+  //       "habit_category"   : selectedValue
+  //     }
+  //     console.log(dadosColetadosCriarHabitos)
+  //     return Request.createHabit(dadosColetadosCriarHabitos);
+
+  //   }) : buttonInserirHabito;
+
+  //   const newUserProfileName = document.querySelector(".perfil__titulo")
+
+  //   const buttonSaveEditProfile = document.querySelector('.modal__submit')
+
+  //   buttonSaveEditProfile?
+  //   buttonSaveEditProfile.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     let body = {}
+  //     let newDataProfile = document.querySelector(".modal.editProfile");
+  //         newDataProfile = new FormData(newDataProfile)
+
+  //         for(let [key, value] of newDataProfile) {
+  //           body[key] = value;
+  //       }
+
+  //       const modalScreen = document.querySelector(".modal-screen");
+  //       modalScreen.classList.toggle("modal-open");
+
+  //       if(body.newUserName !== ""){
+  //         localStorage.setItem("@kenzie-habits: NomeDeUsuario", body.newUserName)
+  //         window.location.reload()
+  //       }
+
+  //   })
+  //   :buttonSaveEditProfile;
+
+  //   });
+
+  // }
+
+  static carregarMais(event) {
+    event.preventDefault();
     // const valoraleatorio = Math.floor(Math.random(0, event) * 10);
     // console.log(valoraleatorio);
-    return Request.listHabits(1) // Carrega sempre de 1 por 1.
+    return Request.listHabits(1); // Carrega sempre de 1 por 1.
   }
 
-  static modalDelete(e) { 
+  static modalDelete(e) {
     e.preventDefault();
 
     const value = e.target.value;
@@ -140,7 +137,7 @@ export default class Event {
   }
 
   static returnModal(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const modalContainer = document.querySelector(".modal__container");
     modalContainer.classList.remove("flat");
@@ -150,12 +147,10 @@ export default class Event {
     content.removeChild(form);
 
     content.append(Modals.editHabit());
-
   }
 
-  static logOutProfile(){
-    window.location.replace('../../index.html')
-    window.localStorage.clear()
+  static logOutProfile() {
+    window.location.replace("../../index.html");
+    window.localStorage.clear();
   }
-
 }

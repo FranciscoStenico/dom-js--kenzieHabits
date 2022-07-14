@@ -26,7 +26,7 @@ export default class Render {
       ? response.forEach((habit, i) =>
           i < index ? this.habit(habit, response) : null
         )
-      : this.habitList(response.length, response);
+      : this.habitList(response, response.length);
   }
 
   static habit(habit, response) {
@@ -59,20 +59,19 @@ export default class Render {
     tag.innerText = habit.habit_category;
 
     checkbox.addEventListener("click", () => {
-      item.classList.toggle("complete");
+      item.classList.add("complete");
+      checkbox.classList.add("habit__checkbox--mark");
+      title.classList.add("scratch");
 
-      checkbox.classList.toggle("habit__checkbox--mark");
-      title.classList.toggle("scratch");
-
-      // Request.completeHabit(habit.habit_id);
+      Request.completeHabit(habit.habit_id);
     });
 
     editor.addEventListener("click", Event.modal);
 
     if (habit.habit_status) {
-      item.classList.toggle("complete");
-      checkbox.classList.toggle("habit__checkbox--mark");
-      title.classList.toggle("scratch");
+      item.classList.add("complete");
+      checkbox.classList.add("habit__checkbox--mark");
+      title.classList.add("scratch");
     }
 
     if (response.length > 0) {
@@ -81,28 +80,4 @@ export default class Render {
       list.append(item);
     }
   }
-
-  // static menuDropDown() {
-  //   const getMenuContainer = document.querySelector(".dropdownMenu__container");
-  //   const createDivContainer = document.createElement("div");
-  //   createDivContainer.classList = "dropdown";
-  //   const figureDropDown = document.createElement("figure");
-  //   figureDropDown.classList = "figureDropDown menu__container__foto";
-  //   const createUlList = document.createElement("ul");
-  //   createUlList.classList = "dropdown-content";
-  //   const createLiEditarPerfil = document.createElement("li");
-  //   createLiEditarPerfil.classList.add(".drop-down__edit");
-  //   createLiEditarPerfil.innerText = "lalaa";
-  //   createLiEditarPerfil.value = "Editar perfil";
-  //   const createLiLogout = document.createElement("li");
-  //   createLiLogout.classList.add("drop-down__logout");
-  //   createLiLogout.innerText = "Sair";
-    
-  //   createLiEditarPerfil.addEventListener("click", Event.modal);
-    
-  //   createUlList.append(createLiEditarPerfil, createLiLogout);
-  //   createDivContainer.append(figureDropDown, createUlList);
-  //   getMenuContainer.append(createDivContainer);
-  //   console.log(getMenuContainer);
-  // }
 }
