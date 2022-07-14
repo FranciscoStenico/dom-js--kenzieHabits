@@ -112,7 +112,6 @@ export default class Request {
 
     fetch(`${this.baseUrl}/habits/complete/${id}`, options)
       .then((response) => response.json())
-      // .then(response => /* desenvolva aqui seu código de resposta */)
       .catch((err) => console.error(err));
   }
 

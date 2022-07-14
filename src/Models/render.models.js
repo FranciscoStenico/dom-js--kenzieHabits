@@ -1,4 +1,5 @@
 import Request from "../Controllers/requisicao.controllers.js";
+import Event from "../Controllers/event.controllers.js";
 
 export default class Render {
   static headerData() {
@@ -29,6 +30,9 @@ export default class Render {
   }
 
   static habit(habit, response) {
+    const empty = document.querySelector(".table__empty");
+    empty.classList.add("hide");
+
     const list = document.querySelector("#habitsList");
 
     const item = document.createElement("li");
@@ -51,15 +55,20 @@ export default class Render {
     description.innerText = habit.habit_description;
     tag.innerText = habit.habit_category;
 
-    if (habit.habit_status) {
-      const empty = document.querySelector(".table__empty");
-      empty.classList.add("hide");
+    checkbox.addEventListener("click", () => {
+      item.classList.add("complete");
+      checkbox.classList.add("habit__checkbox--mark");
+      title.classList.add("scratch");
 
+      Request.completeHabit(habit.habit_id)
+    })
+    
+    if (habit.habit_status) {
       item.classList.add("complete");
       checkbox.classList.add("habit__checkbox--mark");
       title.classList.add("scratch");
     }
-
+    
     if (response.length > 0) {
       category.append(tag);
       item.append(checkbox, title, description, category, editor);
@@ -78,10 +87,10 @@ export default class Render {
     const createLiEditarPerfil = document.createElement("li");
     createLiEditarPerfil.innerText = "Editar Perfil";
     const createLiLogout = document.createElement("li");
-    createLiLogout.innerText = "Sair"
-  
-    createUlList.append(createLiEditarPerfil, createLiLogout)
-    createDivContainer.append(figureDropDown, createUlList)
-    getMenuContainer.append(createDivContainer)
+    createLiLogout.innerText = "Sair";
+
+    createUlList.append(createLiEditarPerfil, createLiLogout);
+    createDivContainer.append(figureDropDown, createUlList);
+    getMenuContainer.append(createDivContainer);
   }
 }
