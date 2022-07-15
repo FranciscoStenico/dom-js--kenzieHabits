@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link's CSS -->
+    <link rel="stylesheet" href="./src/Css/reset.css" />
+    <link rel="stylesheet" href="./src/Css/base.css" />
+    <link rel="stylesheet" href="./src/Css/index.css" />
+
+    <title>Capstone - Login</title>
+  </head>
+  <body>
+    <div class="message__thrower">
+      <h6 class="page__alert alert--error"></h6>
+      <h6 class="page__alert alert--success"></h6>
+    </div>
+    <main class="allContent__box">
+      <section class="box__login">
+        <div class="login__content">
+          <h2 class="content__tituloSite">KenzieHabit</h2>
+          <p class="content__paragrafo">
+            If you are going to use a <u>passage</u> of Lorem Ipsum
+          </p>
+          <p class="content__Rodape">
+            you need to be sure there isn't anything
+          </p>
+
+          <div class="content__slide">
+            <img
+              class="slide__image"
+              src="src/assets/kisspng-united-states-logo-organization-brand-business-white-arrow-image-png-5ab1bd7e5417f8.8230032015215978223445.png"
+              alt="imagem arrastando para baixo"
+            />
+          </div>
+        </div>
+        <div class="box__form-input">
+          <form class="form-input__content">
+            <h3 class="content__title">Login</h3>
+            <label class="content__data"
+              >Email
+              <input type="text" name="email" class="data__email" />
+            </label>
+            <label class="content__data"
+              >Senha
+              <input type="password" name="password" class="data__password" />
+            </label>
+            <button class="content__sendData" id="btnLogin">Login</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/Script/index.script.js"></script>
+  </body>
+</html>

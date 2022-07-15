@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Link's CSS -->
+    <link rel="stylesheet" href="../Css/reset.css" />
+    <link rel="stylesheet" href="../Css/base.css" />
+    <link rel="stylesheet" href="../Css/homepage.css" />
+    <link rel="stylesheet" href="../Css/modal.css" />
+    <title>Capstone - Homepage</title>
+  </head>
+  <body>
+    <div class="message__thrower">
+      <h6 class="page__alert alert--error"></h6>
+      <h6 class="page__alert alert--success"></h6>
+    </div>
+    <header class="page__header">
+      <div class="header__menu">
+        <h2 class="menu__titulo">KenzieHabit</h2>
+        <div class="dropdownMenu__container">
+          <div class="dropdown">
+            <figure class="figureDropDown menu__container__foto">
+              <!-- Imagem de AVATAR via API -->
+            </figure>
+            <section class="dropdown-content">
+              <button
+                class="drop-down__edit dropDown__button"
+                value="Editar perfil"
+                id="editProfile"
+              >
+                Editar Perfil
+              </button>
+              <button class="drop-down__logout dropDown__button" id="logOutBtn">
+                Sair
+              </button>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="header__perfil">
+        <div class="header__perfil-container">
+          <figure class="perfil__container__foto">
+            <!-- Imagem de AVATAR via API -->
+          </figure>
+          <h2 class="perfil__titulo"></h2>
+        </div>
+        <div id="simetria"></div>
+      </div>
+    </header>
+    <main class="page__content">
+      <section class="content__intro">
+        <h3 class="intro__title">Tarefas</h3>
+        <nav class="intro__options">
+          <h4 class="options__filter" id="opAll">Todos</h4>
+          <h4 class="options__filter" id="opComplete">Concluídos</h4>
+          <button
+            id="buttonCriarHabito"
+            class="options__create submit-button"
+            value="Criar hábito"
+          >
+            Criar
+          </button>
+        </nav>
+      </section>
+      <div class="content__table">
+        <header class="table__header">
+          <h5 class="table-header__title table-header__title--status">
+            Status
+          </h5>
+          <h5 class="table-header__title table-header__title--habit-title">
+            Título
+          </h5>
+          <h5 class="table-header__title table__description">Descrição</h5>
+          <h5 class="table-header__title table__category">Categoria</h5>
+          <h5 class="table-header__title table-header__title--editor">
+            Editar
+          </h5>
+        </header>
+        <ul class="table__list" id="habitsList">
+          <!-- render via dos HÁBITOS -->
+          <section class="table__empty">
+            <h2 class="empty__message">Você ainda não possui uma tarefa.</h2>
+          </section>
+        </ul>
+      </div>
+      <button class="content__expand submit-button" id="btnCarregarMais">
+        Recarregar lista
+      </button>
+    </main>
+    <div class="modal-screen">
+      <section class="modal__container">
+        <header class="modal__header">
+          <h3 class="modal-header__title"></h3>
+          <button class="modal-header__exit-button" value="close"></button>
+        </header>
+        <!-- renderização dos MODAIS -->
+      </section>
+    </div>
+    <script type="module" src="../Script/homepage.script.js"></script>
+  </body>
+</html>
