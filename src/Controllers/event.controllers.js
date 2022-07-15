@@ -1,5 +1,6 @@
 import Request from "./requisicao.controllers.js";
 import Modals from "../Models/modals.models.js";
+import Slider from "../Models/slider.models.js";
 
 export default class Event {
   static submitLogin(e) {
@@ -12,13 +13,40 @@ export default class Event {
       const { name, value } = formDeLogin[i];
       if (name) {
         if (value === "") {
-          return alert("Digite os dados de login");
+          Slider.unsuccess("Insira seus dados de login")
         }
         data[name] = value;
       }
     }
     console.log("oi");
     Request.login(data);
+  }
+
+  static dropDown(e) {
+    e.preventDefault()
+
+    const content = document.querySelector(".dropdown-content");
+    content.classList.toggle("dropdown-content--active");
+  }
+
+  static submitEditProfile(e) {
+    e.preventDefault()
+
+    const name = document.querySelector("#title").value;
+    const url = document.querySelector("#modal__editImg").value;
+
+    localStorage.setItem("@kenzie-habits: NomeDeUsuario", name);
+    localStorage.setItem("@kenzie-habits: FotoDeUsuario", url);
+
+    const body = {usr_name: name, usr_image: url}
+    Request.editProfile(body);
+
+    const modalScreen = document.querySelector(".modal-screen");
+    modalScreen.classList.toggle("modal-open");
+
+    setTimeout(() => {
+      location.reload()
+    }, 2000);
   }
 
   static expandContent(e) {
@@ -28,14 +56,6 @@ export default class Event {
     setTimeout(() => {
       location.reload();
     }, 100);
-  }
-
-  static removerErro() {
-    const mensagemErro = document.querySelector(".modal__content");
-    const btnRemoverErro = document.querySelector(".content__delete-button");
-    btnRemoverErro.addEventListener("click", () => {
-      mensagemErro.style.display = "none";
-    });
   }
 
   static modal(e) {
@@ -63,62 +83,54 @@ export default class Event {
       Modals.bodyDocument.append(form);
     }
   }
-  //   // Inicio Evento do CLick para receber os dados dos inputs Criar Habitos, salvar na variavel dadosColetados e retornar a requisição.
-  //   const buttonInserirHabito = document.getElementById("buttonIdTeste");
-  //   buttonInserirHabito?
-  //   buttonInserirHabito.addEventListener("click", (event) =>{
-  //     event.preventDefault();
-  //     const getTitleValue   = document.querySelector("#title");
-  //     const getSelectValue    = document.querySelector("select");
-  //     const getDescriptionValue = document.querySelector("#description");
-  //     const selectedValue = getSelectValue.options[getSelectValue.selectedIndex].value;
 
-  //     // retornar um Objeto com os valores coletados dos inputs
-  //     const dadosColetadosCriarHabitos = {
-  //       "habit_title"      : getTitleValue.value,
-  //       "habit_description": getDescriptionValue.value,
-  //       "habit_category"   : selectedValue
-  //     }
-  //     console.log(dadosColetadosCriarHabitos)
-  //     return Request.createHabit(dadosColetadosCriarHabitos);
+  static submitHabit(e) {
+    e.preventDefault();
 
-  //   }) : buttonInserirHabito;
+    const getTitleValue = document.querySelector("#title");
+    const getSelectValue = document.querySelector("select");
+    const getDescriptionValue = document.querySelector("#description");
+    const selectedValue = getSelectValue.options[
+      getSelectValue.selectedIndex
+    ].value.replace("ú", "u");
+    // retornar um Objeto com os valores coletados dos inputs
+    const dadosColetadosCriarHabitos = {
+      habit_title: getTitleValue.value,
+      habit_description: getDescriptionValue.value,
+      habit_category: selectedValue,
+    };
 
-  //   const newUserProfileName = document.querySelector(".perfil__titulo")
+    const modalScreen = document.querySelector(".modal-screen");
+    modalScreen.classList.toggle("modal-open");
 
-  //   const buttonSaveEditProfile = document.querySelector('.modal__submit')
+    Request.createHabit(dadosColetadosCriarHabitos);
+  }
 
-  //   buttonSaveEditProfile?
-  //   buttonSaveEditProfile.addEventListener("click", (event) => {
-  //     event.preventDefault();
-  //     let body = {}
-  //     let newDataProfile = document.querySelector(".modal.editProfile");
-  //         newDataProfile = new FormData(newDataProfile)
+  static updateHabit(e) {
+    e.preventDefault();
 
-  //         for(let [key, value] of newDataProfile) {
-  //           body[key] = value;
-  //       }
+    const getTitleValue = document.querySelector("#title");
+    const getSelectValue = document.querySelector("select");
+    const getDescriptionValue = document.querySelector("#description");
+    const selectedValue = getSelectValue.options[
+      getSelectValue.selectedIndex
+    ].value.replace("ú", "u");
+    // retornar um Objeto com os valores coletados dos inputs
+    const dadosColetadosCriarHabitos = {
+      habit_title: getTitleValue.value,
+      habit_description: getDescriptionValue.value,
+      habit_category: selectedValue,
+    };
 
-  //       const modalScreen = document.querySelector(".modal-screen");
-  //       modalScreen.classList.toggle("modal-open");
+    const modalScreen = document.querySelector(".modal-screen");
+    modalScreen.classList.toggle("modal-open");
 
-  //       if(body.newUserName !== ""){
-  //         localStorage.setItem("@kenzie-habits: NomeDeUsuario", body.newUserName)
-  //         window.location.reload()
-  //       }
+    const id = localStorage.getItem("@kenzie-habits: eventId");
+    Request.updateHabit(dadosColetadosCriarHabitos, id);
+  }
 
-  //   })
-  //   :buttonSaveEditProfile;
-
-  //   });
-
-  // }
-
-  static carregarMais(event) {
-    event.preventDefault();
-    // const valoraleatorio = Math.floor(Math.random(0, event) * 10);
-    // console.log(valoraleatorio);
-    return Request.listHabits(1); // Carrega sempre de 1 por 1.
+  static submitEdition(e) {
+    e.preventDefault();
   }
 
   static modalDelete(e) {
@@ -149,8 +161,40 @@ export default class Event {
     content.append(Modals.editHabit());
   }
 
+  static filterAll(e) {
+    e.preventDefault();
+
+    Request.listHabits();
+  }
+
+  static filterComplete(e) {
+    e.preventDefault();
+
+    Request.listHabits(true);
+  }
+
+  static deleteHabit(e) {
+    e.preventDefault();
+
+    const id = localStorage.getItem("@kenzie-habits: eventId");
+    Request.deleteHabit(id);
+
+    const modalScreen = document.querySelector(".modal-screen");
+    modalScreen.classList.toggle("modal-open");
+
+    setTimeout(() => {
+      localStorage.removeItem("@kenzie-habits: eventId");
+    }, 500);
+  }
+
+  static reload(e) {
+    e.preventDefault();
+
+    location.reload();
+  }
+
   static logOutProfile() {
-    window.location.replace("../../index.html");
-    window.localStorage.clear();
+    location.replace("../../index.html");
+    localStorage.clear();
   }
 }

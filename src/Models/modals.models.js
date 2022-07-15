@@ -1,4 +1,5 @@
 import Event from "../Controllers/event.controllers.js";
+import Request from "../Controllers/requisicao.controllers.js";
 
 export default class Modals {
   static creatStructure(typeOfModal) {
@@ -77,7 +78,7 @@ export default class Modals {
     const button = this.createHtmlElement(element, classList);
     button.type = buttonType;
     button.name = "modalData";
-    button.id   = identification;
+    button.id = identification;
     buttonValue === "" ? buttonValue : (button.value = buttonValue);
     !placeholder ? placeholder : (button.innerText = placeholder);
 
@@ -107,7 +108,6 @@ export default class Modals {
     return tag;
   }
 
-
   //----------Tags Options-----------------------------------------------------------------
 
   static appropriatingTagsOption(listOptionToCreate) {
@@ -131,6 +131,8 @@ export default class Modals {
       `box__actions ${classListActionType}`
     );
     let actionBoxTitle = this.createHtmlElement("span", "title");
+    actionBoxTitle;
+
     let actionBoxSelect = this.createHtmlElement(
       "select",
       `textArea ${classListActionType}`
@@ -178,6 +180,7 @@ export default class Modals {
       "",
       "buttonIdTeste"
     );
+    boxActionHabitButton.addEventListener("click", Event.submitHabit);
 
     // implementando corpo de modal ao container
     formModal.append(
@@ -264,6 +267,8 @@ export default class Modals {
       "modal__submit save",
       ""
     );
+    boxActionHabitButtonSave.addEventListener("click", Event.updateHabit);
+
     containerActionHabitButton.append(
       boxActionHabitButtonDelete,
       boxActionHabitButtonSave
@@ -311,8 +316,8 @@ export default class Modals {
       "Nome de usuario",
       "title",
       "Novo nome",
-      'edit',
-      'newUserName'
+      "edit",
+      "newUserName"
     );
 
     const boxActionHabitDescription = this.createActionBox(
@@ -321,7 +326,7 @@ export default class Modals {
       "modal__editImg",
       "Nova foto de perfil",
       "3",
-      'newUrl'
+      "newUrl"
     );
 
     const createActionBoxButtonSalvarPerfil = this.createActionBoxButton(
@@ -332,6 +337,7 @@ export default class Modals {
       "",
       "btnSave"
     );
+    createActionBoxButtonSalvarPerfil.addEventListener("click", Event.submitEditProfile);
 
     // implementando corpo de modal ao container
     formModal.append(
@@ -396,15 +402,7 @@ export default class Modals {
       "submit",
       "modal__submit deleteConfirm"
     );
-    deleteButtonConfirme.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      console.log(localStorage.getItem("@kenzie-habits: eventId"));
-      
-      setTimeout(() => {
-        localStorage.removeItem("@kenzie-habits: eventId");
-      }, 200);
-    });
+    deleteButtonConfirme.addEventListener("click", Event.deleteHabit);
 
     conntainerDeleteButtonCancel.append(
       deleteButtonCancel,

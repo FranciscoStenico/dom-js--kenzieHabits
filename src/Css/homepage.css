@@ -11,7 +11,6 @@
   box-shadow: 0px 4px 30px -10px var(--shadow-container);
 }
 
-
 .menu__titulo {
   font-weight: 700;
   font-size: 22px;
@@ -57,11 +56,13 @@
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu__foto {
-  width: 36px;
-  height: 36px;
+  width: 100%;
 }
 
 .header__perfil {
@@ -81,7 +82,6 @@
   text-align: center;
   margin-bottom: 2rem;
   align-items: center;
-  
 }
 
 .perfil__container__foto {
@@ -287,16 +287,20 @@
 
 .dropdown-content {
   display: none;
+  right: 10vw;
   position: absolute;
-  min-width: 120px;
-  background-color: var(--color-white);
-  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
-  z-index: 1;
+  min-width: 10vh;
   border-radius: 5px;
+  background: rgb(65, 90, 243);
+}
+
+.dropdown-content--active {
+  display: block;
 }
 
 .dropDown__button {
-  color: var(--color-brand-1);
+  color: var(--color-white);
+  background-color: var(--color-brand-1);
   padding: 16px 20px;
   text-decoration: none;
   display: block;
@@ -305,22 +309,15 @@
   background-color: inherit;
   border-radius: 5px;
   font-weight: 600;
+  border-bottom: 1px solid var(--color-whitesmoke);
+  border-collapse: collapse;
 }
 
-.dropDown__button:hover {
+.droppedDown {
   color: var(--color-brand-1);
-  background-color: #fff;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
 }
 
 .modal-screen {
@@ -429,4 +426,8 @@
     display: unset;
     width: 20%;
   }
+}
+
+img {
+  height: 120%;
 }

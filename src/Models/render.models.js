@@ -21,12 +21,20 @@ export default class Render {
     containerPerfil.appendChild(fotoPerfil);
   }
 
-  static habitList(response, index) {
-    index <= response.length
-      ? response.forEach((habit, i) =>
-          i < index ? this.habit(habit, response) : null
-        )
-      : this.habitList(response, response.length);
+  static habitList(response) {
+    const list = document.querySelector("ul");
+    const items = document.querySelectorAll(".list__habit");
+    items.forEach(item => list.removeChild(item));
+
+    response.sort((a, b) => Number(a.habit_status) - Number(b.habit_status)).forEach((habit) => this.habit(habit, response));
+  }
+
+  static listComplete(response) {
+    const list = document.querySelector("ul");
+    const items = document.querySelectorAll(".list__habit");
+    items.forEach(item => list.removeChild(item));
+
+    response.filter((habit) => habit.habit_status).forEach(habit => this.habit(habit, response));
   }
 
   static habit(habit, response) {

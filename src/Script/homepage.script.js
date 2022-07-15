@@ -9,22 +9,26 @@ setTimeout(() => {
 
 // Render.menuDropDown();
 
+const dropDown = document.querySelector(".dropdownMenu__container");
+dropDown.addEventListener("click", Event.dropDown);
+
 const editProfile = document.querySelector("#editProfile");
 editProfile.addEventListener("click", Event.modal);
-
-const create = document.querySelector("#buttonCriarHabito");
-create.addEventListener("click", Event.modal);
-
-const modalClose = document.querySelector(".modal-header__exit-button");
-modalClose.addEventListener("click", Event.modal);
-
-const expand = document.querySelector(".content__expand");
-expand.addEventListener("click", Event.expandContent);
 
 const logOutBtn = document.querySelector("#logOutBtn");
 logOutBtn.addEventListener("click", Event.logOutProfile);
 
-const btnCarregarMais = document.getElementById("btnCarregarMais");
-btnCarregarMais.addEventListener("click", Event.carregarMais);
+const create = document.querySelector("#buttonCriarHabito");
+create.addEventListener("click", Event.modal);
 
+const all = document.querySelector("#opAll");
+all.addEventListener("click", Event.filterAll);
 
+const complete = document.querySelector("#opComplete");
+complete.addEventListener("click", Event.filterComplete);
+
+const modalClose = document.querySelector(".modal-header__exit-button");
+modalClose.addEventListener("click", Event.modal);
+
+const reloadButton = document.querySelector("#btnCarregarMais");
+reloadButton.addEventListener("click", Event.reload)

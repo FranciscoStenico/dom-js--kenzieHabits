@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="../Css/reset.css" />
     <link rel="stylesheet" href="../Css/base.css" />
     <link rel="stylesheet" href="../Css/homepage.css" />
-    <link rel="stylesheet" href="../Css/modal.css">
+    <link rel="stylesheet" href="../Css/modal.css" />
     <title>Capstone - Homepage</title>
   </head>
   <body>
+    <div class="message__thrower">
+      <h6 class="page__alert alert--error"></h6>
+      <h6 class="page__alert alert--success"></h6>
+    </div>
     <header class="page__header">
       <div class="header__menu">
         <h2 class="menu__titulo">KenzieHabit</h2>
@@ -21,8 +25,16 @@
               <!-- Imagem de AVATAR via API -->
             </figure>
             <section class="dropdown-content">
-              <button class="drop-down__edit dropDown__button" value="Editar perfil" id="editProfile">Editar Perfil</button>
-              <button class="drop-down__logout dropDown__button" id="logOutBtn">Sair</button>
+              <button
+                class="drop-down__edit dropDown__button"
+                value="Editar perfil"
+                id="editProfile"
+              >
+                Editar Perfil
+              </button>
+              <button class="drop-down__logout dropDown__button" id="logOutBtn">
+                Sair
+              </button>
             </section>
           </div>
         </div>
@@ -73,7 +85,9 @@
           </section>
         </ul>
       </div>
-      <button class="content__expand submit-button" id="btnCarregarMais">Carregar mais</button>
+      <button class="content__expand submit-button" id="btnCarregarMais">
+        Recarregar lista
+      </button>
     </main>
     <div class="modal-screen">
       <section class="modal__container">

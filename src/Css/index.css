@@ -337,7 +337,6 @@
     }
 
     .data__password{
-
         width: 80%;
         height: 40px;
         border-radius: 4px;
@@ -521,11 +520,9 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-color: #415AF3;
         border: none;
         border-radius: 6px;
         font-size: 16px;
-        color: var(--color-white);
         font-family: inherit;
         font-weight: 600;
     }
@@ -538,11 +535,9 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-color: #415AF3;
         border: none;
         border-radius: 6px;
         font-size: 16px;
-        color: var(--color-white);
         font-family: inherit;
         font-weight: 600;
     }
@@ -556,11 +551,9 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-color: #415AF3;
         border: none;
         border-radius: 6px;
         font-size: 16px;
-        color: var(--color-white);
         font-family: inherit;
         font-weight: 600;
     }
